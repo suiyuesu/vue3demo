@@ -1,4 +1,3 @@
-/* eslint-disable */
 <!--
  * @Descripttion:
  * @version:
@@ -6,9 +5,9 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-05-28 14:42:20
  * @LastEditors: sj
- * @LastEditTime: 2022-05-31 19:55:08
+ * @LastEditTime: 2022-06-12 09:11:26
 -->
 
 <template>
-  <h1>kkk</h1>
+  <router-view />
 </template>

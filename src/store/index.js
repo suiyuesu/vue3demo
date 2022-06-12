@@ -5,7 +5,7 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-05-28 14:42:20
  * @LastEditors: sj
- * @LastEditTime: 2022-06-11 10:12:12
+ * @LastEditTime: 2022-06-11 10:23:02
  */
 import { createStore } from 'vuex'
 import createPersistedstate from 'vuex-persistedstate'
@@ -21,8 +21,9 @@ export default createStore({
     category
   },
   plugins: [
+    // 持久化插件
     createPersistedstate({
-      key: 'erabbit-client-pc-store',
+      key: 'PC_STORE',
       paths: ['user', 'cart']
     })
   ]
