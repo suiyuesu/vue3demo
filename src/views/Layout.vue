@@ -5,7 +5,7 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-05-28 15:11:07
  * @LastEditors: sj
- * @LastEditTime: 2022-06-21 20:15:28
+ * @LastEditTime: 2022-06-21 20:43:32
 -->
 <template>
   <!-- 顶部 -->
@@ -33,9 +33,7 @@ export default {
   props: {},
   setup() {
     const store = useStore()
-    return {
-      store
-    }
+    store.dispatch('category/getList')
   }
 }
 </script>
