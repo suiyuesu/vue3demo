@@ -5,7 +5,7 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-06-12 10:51:05
  * @LastEditors: sj
- * @LastEditTime: 2022-06-12 11:03:35
+ * @LastEditTime: 2022-06-21 20:09:38
 -->
 <template>
   <nav class="app-topnav">
@@ -35,7 +35,7 @@ export default {
   name: 'AppTopnav',
   setup () {
     const store = useStore()
-    const profile = computed(() => {
+    const profile = computed(() => { // vuex的状态需要用计算属性，否则不是响应式
       return store.state.user.profile
     })
     return { profile }
