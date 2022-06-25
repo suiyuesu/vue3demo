@@ -5,23 +5,24 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-06-12 09:03:42
  * @LastEditors: sj
- * @LastEditTime: 2022-06-12 10:52:04
+ * @LastEditTime: 2022-06-25 11:23:28
 -->
 <template>
-  <div class="container">
-    首页
+  <div class="page-home">
+    <div class="home-entry">
+      <div class="container">
+        <!-- 左侧分类 -->
+        <HomeCategory />
+        <!-- 轮播 -->
+      </div>
+    </div>
   </div>
 </template>
-
 <script>
-import { ref } from 'vue'
+import HomeCategory from './components/home-category'
 export default {
-  name: 'Home',
-  components: {},
-  props: {}
+  name: 'PageHome',
+  components: { HomeCategory }
 }
 </script>
-
-<style lang="less" scoped>
-
-</style>
+<style scoped lang="less"></style>
