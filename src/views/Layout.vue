@@ -5,11 +5,14 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-05-28 15:11:07
  * @LastEditors: sj
- * @LastEditTime: 2022-06-21 20:43:32
+ * @LastEditTime: 2022-06-25 10:31:17
 -->
 <template>
   <!-- 顶部 -->
   <AppTopnav />
+
+  <!-- 吸顶头部 -->
+  <AppHeaderSticky />
 
   <!-- 头部 -->
   <AppHeader />
@@ -26,10 +29,11 @@ import { useStore } from 'vuex'
 import AppTopnav from '@/components/app-topnav'
 import AppHeader from '@/components/app-header'
 import AppFooter from '@/components/app-footer'
+import AppHeaderSticky from '@/components/app-header-sticky.vue'
 
 export default {
   name: 'Layout',
-  components: { AppTopnav, AppHeader, AppFooter },
+  components: { AppTopnav, AppHeader, AppFooter, AppHeaderSticky },
   props: {},
   setup() {
     const store = useStore()

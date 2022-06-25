@@ -5,7 +5,7 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-06-11 09:46:28
  * @LastEditors: sj
- * @LastEditTime: 2022-06-21 21:45:12
+ * @LastEditTime: 2022-06-25 10:18:22
  */
 import { topCategory } from '@/api/constants'
 import { findAllCategory } from '@/api/category'
@@ -31,9 +31,6 @@ export default {
     show (state, item) {
       const category = state.list.find(category => category.id === item.id)
       category.open = true
-      console.log(666, toRaw(category))
-      console.log(666, category.open)
-      console.log(77777, state.list[0].open)
     },
     // 修改当前一级分类下的open数据为false
     hide (state, item) {

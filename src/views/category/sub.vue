@@ -5,10 +5,10 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-06-21 20:59:11
  * @LastEditors: sj
- * @LastEditTime: 2022-06-21 21:01:11
+ * @LastEditTime: 2022-06-25 10:03:38
 -->
 <template>
-  <div class="top-category">
+  <div class="sub-category">
     erji
   </div>
 </template>
@@ -16,7 +16,7 @@
 <script>
 import { ref } from 'vue'
 export default {
-  name: 'TopCategory',
+  name: 'SubCategory',
   components: {},
   props: {},
   setup() {
