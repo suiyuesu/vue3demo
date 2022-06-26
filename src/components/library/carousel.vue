@@ -5,15 +5,24 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-06-25 17:19:50
  * @LastEditors: sj
- * @LastEditTime: 2022-06-25 17:19:51
+ * @LastEditTime: 2022-06-26 10:21:43
 -->
 <template>
-  <div class="xtx-carousel">
+  <div
+    class="xtx-carousel"
+    @mouseenter="stop()"
+    @mouseleave="start()"
+  >
     <ul class="carousel-body">
-      <li class="carousel-item fade">
+      <li
+        v-for="(item,i) in sliders"
+        :key="i"
+        class="carousel-item"
+        :class="{fade:index===i}"
+      >
         <RouterLink to="/">
           <img
-            src="http://yjy-xiaotuxian-dev.oss-cn-beijing.aliyuncs.com/picture/2021-04-15/1ba86bcc-ae71-42a3-bc3e-37b662f7f07e.jpg"
+            :src="item.imgUrl"
             alt=""
           >
         </RouterLink>
@@ -29,16 +38,80 @@
     ><i class="iconfont icon-angle-right" /></a>
     <div class="carousel-indicator">
       <span
-        v-for="i in 5"
+        v-for="(item,i) in sliders"
         :key="i"
+        :class="{active:index===i}"
       />
     </div>
   </div>
 </template>
 
 <script>
+import { ref, watch } from 'vue'
 export default {
-  name: 'XtxCarousel'
+  name: 'XtxCarousel',
+  props: {
+    sliders: {
+      type: Array,
+      default: () => []
+    },
+    duration: {
+      type: Number,
+      default: 3000
+    },
+    autoPlay: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup (props) {
+  // 默认显示的图片的索引
+    const index = ref(0)
+    // 自动播放
+    let timer = null
+    const autoPlayFn = () => {
+      clearInterval(timer)
+      timer = setInterval(() => {
+        index.value++
+        if (index.value >= props.sliders.length) {
+          index.value = 0
+        }
+      }, props.duration)
+    }
+    watch(() => props.sliders, (newVal) => {
+      // 有数据&开启自动播放，才调用自动播放函数
+      if (newVal.length && props.autoPlay) {
+        index.value = 0
+        autoPlayFn()
+      }
+    }, { immediate: true })
+
+    // 鼠标进入停止，移出开启自动，前提条件：autoPlay为true
+    const stop = () => {
+      if (timer) clearInterval(timer)
+    }
+    const start = () => {
+      if (props.sliders.length && props.autoPlay) {
+        autoPlayFn()
+      }
+    }
+
+    // 上一张下一张
+    const toggle = (step) => {
+      const newIndex = index.value + step
+      if (newIndex >= props.sliders.length) {
+        index.value = 0
+        return
+      }
+      if (newIndex < 0) {
+        index.value = props.sliders.length - 1
+        return
+      }
+      index.value = newIndex
+    }
+
+    return { index, stop, start, toggle }
+  }
 }
 </script>
 <style scoped lang="less">
