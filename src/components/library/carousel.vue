@@ -5,7 +5,7 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-06-25 17:19:50
  * @LastEditors: sj
- * @LastEditTime: 2022-06-26 10:21:43
+ * @LastEditTime: 2022-06-26 11:07:38
 -->
 <template>
   <div
@@ -31,23 +31,26 @@
     <a
       href="javascript:;"
       class="carousel-btn prev"
+      @click="toggle(-1)"
     ><i class="iconfont icon-angle-left" /></a>
     <a
       href="javascript:;"
       class="carousel-btn next"
+      @click="toggle(1)"
     ><i class="iconfont icon-angle-right" /></a>
     <div class="carousel-indicator">
       <span
         v-for="(item,i) in sliders"
         :key="i"
         :class="{active:index===i}"
+        @click="index =i"
       />
     </div>
   </div>
 </template>
 
 <script>
-import { ref, watch } from 'vue'
+import { ref, watch, onUnmounted } from 'vue'
 export default {
   name: 'XtxCarousel',
   props: {
@@ -110,6 +113,10 @@ export default {
       index.value = newIndex
     }
 
+    // 组件消耗，清理定时器
+    onUnmounted(() => {
+      clearInterval(timer)
+    })
     return { index, stop, start, toggle }
   }
 }
