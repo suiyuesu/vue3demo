@@ -5,7 +5,7 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-06-25 11:10:57
  * @LastEditors: sj
- * @LastEditTime: 2022-06-25 12:43:32
+ * @LastEditTime: 2022-06-25 14:54:35
 -->
 <template>
   <div
@@ -251,6 +251,17 @@ export default {
     .layer {
       display: block;
     }
+  }
+}
+.xtx-skeleton {
+  animation: fade 1s linear infinite alternate;
+}
+@keyframes fade {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
   }
 }
 </style>
