@@ -5,10 +5,11 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-06-25 12:41:26
  * @LastEditors: sj
- * @LastEditTime: 2022-06-25 17:20:53
+ * @LastEditTime: 2022-08-06 09:42:40
  */
 import Skeleton from './skeleton.vue' // 骨架屏
 import Carousel from './carousel.vue' // 轮播图
+import More from './more.vue' // 更多
 
 export default {
   install (app) {
@@ -16,5 +17,6 @@ export default {
     // 如果要挂载原型 app.config.globalProperties 方式
     app.component(Skeleton.name, Skeleton)
     app.component(Carousel.name, Carousel)
+    app.component(More.name, More)
   }
 }
