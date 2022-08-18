@@ -5,214 +5,237 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-06-21 20:10:41
  * @LastEditors: sj
- * @LastEditTime: 2022-06-21 20:12:07
+ * @LastEditTime: 2022-08-18 14:08:57
 -->
 <template>
   <footer class="app-footer">
+    <img
+      :src="imgSrc"
+      title="麟康"
+    >
     <!-- 联系我们 -->
-    <div class="contact">
-      <div class="container">
-        <dl>
-          <dt>客户服务</dt>
-          <dd><i class="iconfont icon-kefu" /> 在线客服</dd>
-          <dd><i class="iconfont icon-question" /> 问题反馈</dd>
-        </dl>
-        <dl>
-          <dt>关注我们</dt>
-          <dd><i class="iconfont icon-weixin" /> 公众号</dd>
-          <dd><i class="iconfont icon-weibo" /> 微博</dd>
-        </dl>
-        <dl>
-          <dt>下载APP</dt>
-          <dd class="qrcode"><img src="../assets/images/img1.jpg"></dd>
-          <dd class="download">
-            <span>扫描二维码</span>
-            <span>立马下载APP</span>
-            <a href="javascript:;">下载页面</a>
-          </dd>
-        </dl>
-        <dl>
-          <dt>服务热线</dt>
-          <dd class="hotline">400-0000-000 <small>周一至周日 8:00-18:00</small></dd>
-        </dl>
-      </div>
-    </div>
-    <!-- 其它 -->
-    <div class="extra">
-      <div class="container">
-        <div class="slogan">
-          <a href="javascript:;">
-            <i class="iconfont icon-footer01" />
-            <span>价格亲民</span>
-          </a>
-          <a href="javascript:;">
-            <i class="iconfont icon-footer02" />
-            <span>物流快捷</span>
-          </a>
-          <a href="javascript:;">
-            <i class="iconfont icon-footer03" />
-            <span>品质新鲜</span>
-          </a>
-        </div>
-        <!-- 版权信息 -->
-        <div class="copyright">
-          <p>
-            <a href="javascript:;">关于我们</a>
-            <a href="javascript:;">帮助中心</a>
-            <a href="javascript:;">售后服务</a>
-            <a href="javascript:;">配送与验收</a>
-            <a href="javascript:;">商务合作</a>
-            <a href="javascript:;">搜索推荐</a>
-            <a href="javascript:;">友情链接</a>
-          </p>
-          <p>CopyRight © 小兔鲜儿</p>
-        </div>
-      </div>
+    <div class="footerContainer">
+      <el-row
+        :gutter="20"
+        style="padding:0 8% "
+      >
+        <el-col :span="10">
+          <el-row justify="space-evenly">
+            <el-col
+              v-for="item in list"
+              :key="item.title"
+              :span="6"
+              class="intorduce"
+            >
+              <div class="title">
+                {{ item.title }}
+              </div>
+              <div
+                v-for="el in item.item"
+                :key="el.name"
+              >{{ el.name }}</div>
+            </el-col>
+          </el-row>
+        </el-col>
+        <el-col
+          :span="11"
+          class="center"
+        >
+          <div class="title">合作伙伴</div>
+          <div
+            id="gd_demo"
+            ref="gd_demo"
+          >
+            <div id="gd_indemo">
+              <div
+                id="gd_demo1"
+                ref="gd_demo1"
+              >
+                <img
+                  v-for="item in imgLink"
+                  :key="item.src"
+                  :src="item.src"
+                  @click="link(item.link)"
+                >
+
+              </div>
+              <div
+                id="gd_demo2"
+                ref="gd_demo2"
+              />
+            </div>
+          </div>
+        </el-col>
+        <el-col
+          :span="3"
+          class="center"
+        >
+          <div class="title">麟康医疗</div>
+          <img
+            src="../static/images/ewm/ewm_lkyl.png"
+            style="width:80px"
+          >
+        </el-col>
+      </el-row>
+      <el-row
+        justify="center"
+        style="margin-top:20px"
+      >
+        <a
+          style="color:#FFF"
+          @click="link('https://beian.miit.gov.cn')"
+        >浙ICP备19029717号-1</a>&ensp;|&ensp;互联网药品信息服务资格证：(浙)-经营性-2019-0087&ensp;|&ensp;杭州麟康医疗科技有限公司 © 版权所有
+      </el-row>
+      <el-row
+        justify="center"
+        align="middle"
+      >
+        <el-icon><LocationFilled /></el-icon>&nbsp; 浙江省杭州市滨江区火炬大道581号&emsp;
+        <el-icon><PhoneFilled /></el-icon>&nbsp; 17366656508&emsp;
+        <el-icon><Comment /></el-icon>&nbsp; hr@linkang-medical.com
+      </el-row>
     </div>
   </footer>
 </template>
 
-<script>
-export default {
-  name: 'AppFooter'
+<script setup>
+import { onMounted, ref } from 'vue'
+const imgSrc = require('@/static/imgs/footer1.jpg')
+const list = [
+  {
+    title: '产品体系',
+    item: [
+      { name: '智慧门诊SaaS', link: '/da' },
+      { name: '增值运营服务', link: '/da' },
+      { name: '数智监控', link: '/da' }
+    ]
+  },
+  {
+    title: '服务案例',
+    item: [
+      { name: '面向医疗机构', link: '/da' },
+      { name: '面向区域医疗', link: '/da' },
+      { name: '面向政府部门', link: '/da' }
+    ]
+  },
+  {
+    title: '关于麟康',
+    item: [
+      { name: '公司介绍', link: '/da' },
+      { name: '联系我们', link: '/da' },
+      { name: '加入我们', link: '/da' }
+    ]
+  }
+]
+const imgLink = [{
+  src: require('@/static/images/partner/icon_zdyxy.png'),
+  link: 'http://www.cmm.zju.edu.cn/'
+}, {
+  src: require('@/static/images/partner/icon_eb.png'),
+  link: 'http://www.zjuch.cn/'
+}, {
+  src: require('@/static/images/partner/icon_lhyh.png'),
+  link: 'https://www.urcb.com/'
+}, {
+  src: require('@/static/images/partner/icon_szl.png'),
+  link: 'http://www.zchospital.com/'
+}, {
+  src: require('@/static/images/partner/icon_yjy.png'),
+  link: 'https://www.1gene.com.cn/index'
+}, {
+  src: require('@/static/images/partner/icon_zjkj.png'),
+  link: 'http://www.zhuojianchina.com/'
+}, {
+  src: require('@/static/images/partner/icon_kg.png'),
+  link: 'http://www.tangutek.com/'
+}, {
+  src: require('@/static/images/partner/icon_zy.png'),
+  link: 'http://www.zy91.com/'
+}, {
+  src: require('@/static/images/partner/icon_ze.png'),
+  link: 'http://www.z2hospital.com/'
+}]
+const gd_demo = ref(null)
+const gd_demo1 = ref(null)
+const gd_demo2 = ref(null)
+onMounted(
+  init
+)
+function init() {
+  const speed = 10 // 数字越大速度越慢
+  const tab = gd_demo.value
+  const tab1 = gd_demo1.value
+  const tab2 = gd_demo2.value
+  tab2.innerHTML = tab1.innerHTML
+  let left = 0
+  function Marquee() {
+    if (tab2.offsetWidth - tab.scrollLeft <= 0) {
+      left -= tab1.offsetWidth
+    } else {
+      left++
+    }
+    tab.scrollLeft = left
+  }
+  var MyMar = window.setInterval(Marquee, speed)
+  tab.onmouseover = function () {
+    clearInterval(MyMar)
+  }
+  tab.onmouseout = function () {
+    MyMar = setInterval(Marquee, speed)
+  }
+}
+
+function link(href) {
+  window.open(href, '_blank')
 }
 </script>
 
-<style scoped lang='less'>
+<style scoped lang="less">
 .app-footer {
   overflow: hidden;
   background-color: #f5f5f5;
   padding-top: 20px;
-  .contact {
-    background: #fff;
-    .container {
-      padding: 60px 0 40px 25px;
-      display: flex;
-    }
-    dl {
-      height: 190px;
-      text-align: center;
-      padding: 0 72px;
-      border-right: 1px solid #f2f2f2;
-      color: #999;
-      &:first-child {
-        padding-left: 0;
-      }
-      &:last-child {
-        border-right: none;
-        padding-right: 0;
-      }
-    }
-    dt {
-      line-height: 1;
-      font-size: 18px;
-    }
-    dd {
-      margin: 36px 12px 0 0;
-      float: left;
-      width: 92px;
-      height: 92px;
-      padding-top: 10px;
-      border: 1px solid #ededed;
-      .iconfont {
-        font-size: 36px;
-        display: block;
-        color: #666;
-      }
-      &:hover {
-        .iconfont {
-          color: @xtxColor;
-        }
-      }
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-    .qrcode {
-      width: 92px;
-      height: 92px;
-      padding: 7px;
-      border: 1px solid #ededed;
-    }
-    .download {
-      padding-top: 5px;
-      font-size: 14px;
-      width: auto;
-      height: auto;
-      border: none;
-      span {
-        display: block;
-      }
-      a {
-        display: block;
-        line-height: 1;
-        padding: 10px 25px;
-        margin-top: 5px;
-        color: #fff;
-        border-radius: 2px;
-        background-color: @xtxColor;
-      }
-    }
-    .hotline {
-      padding-top: 20px;
-      font-size: 22px;
-      color: #666;
-      width: auto;
-      height: auto;
-      border: none;
-      small {
-        display: block;
-        font-size: 15px;
-        color: #999;
-      }
+  .footerContainer {
+    height: 250px;
+    padding: 20px 0;
+    background-color: #333e48;
+    color: #fff;
+  }
+  .intorduce {
+    padding-left: 30px;
+    div {
+      margin-bottom: 10px;
+      text-align: left;
     }
   }
-  .extra {
-    background-color: #333;
+  .title {
+    font-size: 18px;
+     margin-bottom: 10px;
   }
-  .slogan {
-    height: 178px;
-    line-height: 58px;
-    padding: 60px 100px;
-    border-bottom: 1px solid #434343;
-    display: flex;
-    justify-content: space-between;
-    a {
-      height: 58px;
-      line-height: 58px;
-      color: #fff;
-      font-size: 28px;
-      i {
-        font-size: 50px;
-        vertical-align: middle;
-        margin-right: 10px;
-        font-weight: 100;
-      }
-      span {
-        vertical-align: middle;
-        text-shadow: 0 0 1px #333;
-      }
-    }
-  }
-  .copyright {
-    height: 170px;
-    padding-top: 40px;
+  .center {
     text-align: center;
-    color: #999;
-    font-size: 15px;
-    p {
-      line-height: 1;
-      margin-bottom: 20px;
-    }
-    a {
-      color: #999;
-      line-height: 1;
-      padding: 0 10px;
-      border-right: 1px solid #999;
-      &:last-child {
-        border-right: none;
-      }
-    }
   }
+  #gd_demo {
+  overflow: hidden;
+  overflow: hidden;
+  width: 100%;
+}
+#gd_demo img {
+  width: 180px;
+  height: 80px;
+  margin: 0px 10px;
+  border: 3px solid #f2f2f2;
+  cursor: pointer;
+}
+#gd_indemo {
+  float: left;
+  width:800%;
+}
+#gd_demo1 {
+  float: left;
+}
+#gd_demo2 {
+  float: left;
+}
 }
 </style>
