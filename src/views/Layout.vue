@@ -5,7 +5,7 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-05-28 15:11:07
  * @LastEditors: sj
- * @LastEditTime: 2022-06-25 10:31:17
+ * @LastEditTime: 2022-08-25 15:00:11
 -->
 <template>
   <!-- 顶部 -->
@@ -22,18 +22,21 @@
   </div>
   <!-- 底部 -->
   <AppFooter />
+  <!-- 联系我们 -->
+  <AppPhone />
 </template>
 
-<script >
+<script>
 import { useStore } from 'vuex'
 import AppTopnav from '@/components/app-topnav'
 import AppHeader from '@/components/app-header'
 import AppFooter from '@/components/app-footer'
+import AppPhone from '@/components/app-phone'
 import AppHeaderSticky from '@/components/app-header-sticky.vue'
 
 export default {
   name: 'Layout',
-  components: { AppTopnav, AppHeader, AppFooter, AppHeaderSticky },
+  components: { AppTopnav, AppHeader, AppFooter, AppPhone, AppHeaderSticky },
   props: {},
   setup() {
     const store = useStore()
@@ -43,7 +46,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.app-main{
+.app-main {
   min-height: calc(100vh - 100px);
 }
 </style>

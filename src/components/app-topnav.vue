@@ -5,71 +5,46 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-06-12 10:51:05
  * @LastEditors: sj
- * @LastEditTime: 2022-06-21 20:09:38
+ * @LastEditTime: 2022-08-25 17:43:33
 -->
 <template>
-  <nav class="app-topnav">
-    <div class="container">
-      <ul>
-        <template v-if="profile.token">
-          <li><a href="javascript:;"><i class="iconfont icon-user" />{{ profile.account }}</a></li>
-          <li><a href="javascript:;">退出登录</a></li>
-        </template>
-        <template v-else>
-          <li><a href="javascript:;">请先登录</a></li>
-          <li><a href="javascript:;">免费注册</a></li>
-        </template>
-        <li><a href="javascript:;">我的订单</a></li>
-        <li><a href="javascript:;">会员中心</a></li>
-        <li><a href="javascript:;">帮助中心</a></li>
-        <li><a href="javascript:;">关于我们</a></li>
-        <li><a href="javascript:;"><i class="iconfont icon-phone" />手机版</a></li>
-      </ul>
-    </div>
-  </nav>
+  <el-menu
+    :default-active="activeIndex"
+    class="el-menu-demo"
+    mode="horizontal"
+    :ellipsis="false"
+    @select="handleSelect"
+  >
+    <el-menu-item index="0">LOGO</el-menu-item>
+    <div class="flex-grow" />
+    <el-menu-item index="1">网站首页</el-menu-item>
+    <el-sub-menu index="2">
+      <template #title>产品体系</template>
+      <el-menu-item index="2-1">智慧门诊SaaS</el-menu-item>
+      <el-menu-item index="2-2">增值运营服务</el-menu-item>
+      <el-menu-item index="2-3">数智卫监</el-menu-item>
+    </el-sub-menu>
+    <el-menu-item index="3">服务案例</el-menu-item>
+    <el-menu-item index="4">新闻咨询</el-menu-item>
+    <el-menu-item index="5">关于麟康</el-menu-item>
+  </el-menu>
 </template>
-<script>
+<script setup>
 import { useStore } from 'vuex'
 import { computed } from 'vue'
-export default {
-  name: 'AppTopnav',
-  setup () {
-    const store = useStore()
-    const profile = computed(() => { // vuex的状态需要用计算属性，否则不是响应式
-      return store.state.user.profile
-    })
-    return { profile }
-  }
-}
+const store = useStore()
+const profile = computed(() => {
+  // vuex的状态需要用计算属性，否则不是响应式
+  return store.state.user.profile
+})
 </script>
 <style scoped lang="less">
-.app-topnav {
-  background: #333;
-  ul {
-    display: flex;
-    height: 53px;
-    justify-content: flex-end;
-    align-items: center;
-    li {
-      a {
-        padding: 0 15px;
-        color: #cdcdcd;
-        line-height: 1;
-        display: inline-block;
-        i {
-          font-size: 14px;
-          margin-right: 2px;
-        }
-        &:hover {
-          color: @xtxColor;
-        }
-      }
-      ~ li {
-        a {
-          border-left: 2px solid #666;
-        }
-      }
-    }
-  }
+.el-menu-demo {
+  width: 1240px;
+  margin: 0 auto;
+}
+.flex-grow {
+  flex-grow: 1;
 }
 </style>
+
