@@ -5,7 +5,7 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-06-12 09:03:42
  * @LastEditors: sj
- * @LastEditTime: 2022-06-26 09:56:21
+ * @LastEditTime: 2022-08-26 16:23:49
 -->
 <template>
   <div class="page-home">
@@ -16,16 +16,11 @@
         <!-- 轮播 -->
         <HomeBanner />
       </div>
-
     </div>
   </div>
 </template>
-<script>
+<script setup>
 import HomeCategory from './components/home-category'
 import HomeBanner from './components/home-banner'
-export default {
-  name: 'PageHome',
-  components: { HomeCategory, HomeBanner }
-}
 </script>
 <style scoped lang="less"></style>

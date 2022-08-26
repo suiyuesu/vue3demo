@@ -5,7 +5,7 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-08-25 14:49:05
  * @LastEditors: sj
- * @LastEditTime: 2022-08-26 13:57:15
+ * @LastEditTime: 2022-08-26 16:35:01
 -->
 <template>
   <div class="container" @mouseenter="show = true" @mouseleave="show = false">
@@ -39,7 +39,7 @@ watch(show, (v) => {
   background-color: #fff;
   padding: 10px 0;
   z-index: 999;
-  color: #32abe0;
+  color: @xtxColor;
   box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.075);
   border-radius: 13px;
   cursor: pointer;
@@ -65,7 +65,7 @@ watch(show, (v) => {
   overflow: hidden;
   transition: all 0.3s;
   border-radius: 40px 0 0 40px;
-  background-color: #32abe0;
+  background-color: @xtxColor;
   color: #fff;
   font-size: 18px;
   z-index: 998;
@@ -79,6 +79,6 @@ watch(show, (v) => {
 }
 .container:hover {
   color: #fff;
-  background-color: #32abe0;
+  background-color: @xtxColor;
 }
 </style>

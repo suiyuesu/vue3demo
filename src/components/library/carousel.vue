@@ -5,10 +5,10 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-06-25 17:19:50
  * @LastEditors: sj
- * @LastEditTime: 2022-08-26 15:35:19
+ * @LastEditTime: 2022-08-26 16:55:42
 -->
 <template>
-  <div class="xtx-carousel" @mouseenter="stop()" @mouseleave="start()">
+  <div class="carouselContainer" @mouseenter="stop()" @mouseleave="start()">
     <ul class="carousel-body">
       <li
         v-for="(item, i) in sliders"
@@ -17,7 +17,7 @@
         :class="{ fade: index === i }"
       >
         <!-- <RouterLink to="/"> -->
-        <img :src="item.imgUrl" />
+        <img :src="item.imgUrl" style="display: block" />
         <!-- </RouterLink> -->
       </li>
     </ul>
@@ -123,7 +123,7 @@ export default {
 }
 </script>
 <style scoped lang="less">
-.xtx-carousel {
+.carouselContainer {
   width: 100%;
   height: 100%;
   min-width: 300px;

@@ -5,7 +5,7 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-06-12 10:51:05
  * @LastEditors: sj
- * @LastEditTime: 2022-08-26 16:08:12
+ * @LastEditTime: 2022-08-26 16:55:21
 -->
 <template>
   <div class="header">
@@ -31,7 +31,7 @@
       <el-menu-item index="4"> 新闻咨询 </el-menu-item>
       <el-menu-item index="5"> 关于麟康 </el-menu-item>
     </el-menu>
-    <div style="height: 700px">
+    <div>
       <XtxCarousel auto-play :sliders="bannerList.banner" />
     </div>
   </div>

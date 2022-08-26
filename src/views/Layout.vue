@@ -5,7 +5,7 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-05-28 15:11:07
  * @LastEditors: sj
- * @LastEditTime: 2022-08-26 14:42:28
+ * @LastEditTime: 2022-08-26 16:25:59
 -->
 <template>
   <!-- 顶部 -->
@@ -15,6 +15,7 @@
   <AppHeaderSticky />
 
   <!-- 头部 -->
+  <Title :title="'jnfdsklgnlifng'" />
   <AppHeader />
 
   <div class="app-main">
@@ -33,10 +34,18 @@ import AppHeader from '@/components/app-header'
 import AppFooter from '@/components/app-footer'
 import AppPhone from '@/components/app-phone'
 import AppHeaderSticky from '@/components/app-header-sticky.vue'
+import Title from '@/components/app-title.vue'
 
 export default {
   name: 'Layout',
-  components: { AppTopnav, AppHeader, AppFooter, AppPhone, AppHeaderSticky },
+  components: {
+    AppTopnav,
+    Title,
+    AppHeader,
+    AppFooter,
+    AppPhone,
+    AppHeaderSticky,
+  },
   props: {},
   setup() {
     const store = useStore()
