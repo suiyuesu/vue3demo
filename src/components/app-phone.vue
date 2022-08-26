@@ -5,14 +5,14 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-08-25 14:49:05
  * @LastEditors: sj
- * @LastEditTime: 2022-08-25 16:06:08
+ * @LastEditTime: 2022-08-26 13:57:15
 -->
 <template>
   <div class="container" @mouseenter="show = true" @mouseleave="show = false">
     <div class="layout">
       <img :src="imgSrc" style="width: 40px" />
       <div>我要咨询</div>
-      <di :class="['phone', show ? '' : 'phoneW']">17366656508</di>
+      <di :class="['phone', show ? '' : 'phoneW']"> 17366656508 </di>
     </div>
   </div>
 </template>
@@ -74,7 +74,7 @@ watch(show, (v) => {
   width: 0;
   padding: 0;
   border: none;
-  background-color: #FFF;
+  background-color: #fff;
   color: #fff;
 }
 .container:hover {

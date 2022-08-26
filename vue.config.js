@@ -21,6 +21,7 @@ module.exports = defineConfig({
       ]
     }
   },
+
   // 处理less汇入报错、
   chainWebpack: (config) => {
     const oneOfsMap = config.module.rule('less').oneOfs.store
@@ -37,6 +38,7 @@ module.exports = defineConfig({
         })
         .end()
     })
-  }
+  },
 
+  lintOnSave: false
 })

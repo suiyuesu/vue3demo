@@ -5,40 +5,50 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-06-25 10:23:45
  * @LastEditors: sj
- * @LastEditTime: 2022-06-25 11:04:55
+ * @LastEditTime: 2022-08-26 16:10:26
 -->
 <template>
-  <div
-    class="app-header-sticky"
-    :class="{ show: y >= 78 }"
-  >
-    <div
-      v-show="y >= 78"
-      class="container"
-    >
-      <RouterLink
-        class="logo"
-        to="/"
-      />
-      <AppHeaderNav />
-      <div class="right">
-        <RouterLink to="/">品牌</RouterLink>
-        <RouterLink to="/">专题</RouterLink>
-      </div>
+  <div class="app-header-sticky" :class="{ show: y >= 78 }">
+    <div v-show="y >= 78" class="container">
+      <el-menu
+        :default-active="activeIndex"
+        class="el-menu-demo"
+        mode="horizontal"
+        :ellipsis="false"
+        @select="handleSelect"
+      >
+        <el-menu-item index="0" class="layout">
+          <img src="../static/logo/logoH1.png" style="height: 45px" />
+        </el-menu-item>
+        <div class="flex-grow" />
+        <el-menu-item index="1"> 网站首页 </el-menu-item>
+        <el-sub-menu index="2">
+          <template #title> 产品体系 </template>
+          <el-menu-item index="2-1"> 智慧门诊SaaS </el-menu-item>
+          <el-menu-item index="2-2"> 增值运营服务 </el-menu-item>
+          <el-menu-item index="2-3"> 数智卫监 </el-menu-item>
+        </el-sub-menu>
+        <el-menu-item index="3"> 服务案例 </el-menu-item>
+        <el-menu-item index="4"> 新闻咨询 </el-menu-item>
+        <el-menu-item index="5"> 关于麟康 </el-menu-item>
+      </el-menu>
     </div>
   </div>
 </template>
 
-<script>
+<script setup>
 import AppHeaderNav from './app-header-nav'
+import { useStore } from 'vuex'
+import { computed } from 'vue'
 import { useWindowScroll } from '@vueuse/core'
-export default {
-  name: 'AppHeaderSticky',
-  components: { AppHeaderNav },
-  setup() {
-    const { y } = useWindowScroll()
-    return { y }
-  }
+const store = useStore()
+const { y } = useWindowScroll()
+const activeIndex = computed(() => {
+  // vuex的状态需要用计算属性，否则不是响应式
+  return store.state.user.activeTab
+})
+const handleSelect = (key, keyPath) => {
+  store.commit('user/setActiveTab', key)
 }
 </script>
 
@@ -85,5 +95,17 @@ export default {
       }
     }
   }
+}
+.flex-grow {
+  flex-grow: 1;
+}
+.el-menu-demo {
+  margin-top: 15px !important;
+  width: 1240px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0);
+  border-bottom: none;
+  z-index: 999;
+  height: 50px;
 }
 </style>

@@ -5,45 +5,42 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-06-25 17:19:50
  * @LastEditors: sj
- * @LastEditTime: 2022-06-26 11:07:38
+ * @LastEditTime: 2022-08-26 15:35:19
 -->
 <template>
-  <div
-    class="xtx-carousel"
-    @mouseenter="stop()"
-    @mouseleave="start()"
-  >
+  <div class="xtx-carousel" @mouseenter="stop()" @mouseleave="start()">
     <ul class="carousel-body">
       <li
-        v-for="(item,i) in sliders"
+        v-for="(item, i) in sliders"
         :key="i"
         class="carousel-item"
-        :class="{fade:index===i}"
+        :class="{ fade: index === i }"
       >
-        <RouterLink to="/">
-          <img
-            :src="item.imgUrl"
-            alt=""
-          >
-        </RouterLink>
+        <!-- <RouterLink to="/"> -->
+        <img :src="item.imgUrl" />
+        <!-- </RouterLink> -->
       </li>
     </ul>
     <a
       href="javascript:;"
       class="carousel-btn prev"
+      v-if="sliders.length > 1"
       @click="toggle(-1)"
-    ><i class="iconfont icon-angle-left" /></a>
+      ><i class="iconfont icon-angle-left"
+    /></a>
     <a
       href="javascript:;"
       class="carousel-btn next"
+      v-if="sliders.length > 1"
       @click="toggle(1)"
-    ><i class="iconfont icon-angle-right" /></a>
-    <div class="carousel-indicator">
+      ><i class="iconfont icon-angle-right"
+    /></a>
+    <div class="carousel-indicator" v-if="sliders.length > 1">
       <span
-        v-for="(item,i) in sliders"
+        v-for="(item, i) in sliders"
         :key="i"
-        :class="{active:index===i}"
-        @click="index =i"
+        :class="{ active: index === i }"
+        @click="index = i"
       />
     </div>
   </div>
@@ -56,19 +53,19 @@ export default {
   props: {
     sliders: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     duration: {
       type: Number,
-      default: 3000
+      default: 3000,
     },
     autoPlay: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
-  setup (props) {
-  // 默认显示的图片的索引
+  setup(props) {
+    // 默认显示的图片的索引
     const index = ref(0)
     // 自动播放
     let timer = null
@@ -81,13 +78,17 @@ export default {
         }
       }, props.duration)
     }
-    watch(() => props.sliders, (newVal) => {
-      // 有数据&开启自动播放，才调用自动播放函数
-      if (newVal.length && props.autoPlay) {
-        index.value = 0
-        autoPlayFn()
-      }
-    }, { immediate: true })
+    watch(
+      () => props.sliders,
+      (newVal) => {
+        // 有数据&开启自动播放，才调用自动播放函数
+        if (newVal.length && props.autoPlay) {
+          index.value = 0
+          autoPlayFn()
+        }
+      },
+      { immediate: true }
+    )
 
     // 鼠标进入停止，移出开启自动，前提条件：autoPlay为true
     const stop = () => {
@@ -118,17 +119,17 @@ export default {
       clearInterval(timer)
     })
     return { index, stop, start, toggle }
-  }
+  },
 }
 </script>
 <style scoped lang="less">
-.xtx-carousel{
+.xtx-carousel {
   width: 100%;
   height: 100%;
   min-width: 300px;
   min-height: 150px;
   position: relative;
-  .carousel{
+  .carousel {
     &-body {
       width: 100%;
       height: 100%;
@@ -161,34 +162,34 @@ export default {
         display: inline-block;
         width: 12px;
         height: 12px;
-        background: rgba(0,0,0,0.2);
+        background: rgba(0, 0, 0, 0.2);
         border-radius: 50%;
         cursor: pointer;
         ~ span {
           margin-left: 12px;
         }
         &.active {
-          background:  #fff;
+          background: #fff;
         }
       }
     }
     &-btn {
       width: 44px;
       height: 44px;
-      background: rgba(0,0,0,.2);
+      background: rgba(0, 0, 0, 0.2);
       color: #fff;
       border-radius: 50%;
       position: absolute;
-      top: 228px;
+      top: 50%;
       z-index: 2;
       text-align: center;
       line-height: 44px;
       opacity: 0;
       transition: all 0.5s;
-      &.prev{
+      &.prev {
         left: 20px;
       }
-      &.next{
+      &.next {
         right: 20px;
       }
     }
