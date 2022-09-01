@@ -5,7 +5,7 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-05-28 15:11:07
  * @LastEditors: sj
- * @LastEditTime: 2022-08-26 16:25:59
+ * @LastEditTime: 2022-09-01 14:01:38
 -->
 <template>
   <!-- 顶部 -->
@@ -13,10 +13,6 @@
 
   <!-- 吸顶头部 -->
   <AppHeaderSticky />
-
-  <!-- 头部 -->
-  <Title :title="'jnfdsklgnlifng'" />
-  <AppHeader />
 
   <div class="app-main">
     <router-view />
@@ -30,18 +26,14 @@
 <script>
 import { useStore } from 'vuex'
 import AppTopnav from '@/components/app-topnav'
-import AppHeader from '@/components/app-header'
 import AppFooter from '@/components/app-footer'
 import AppPhone from '@/components/app-phone'
 import AppHeaderSticky from '@/components/app-header-sticky.vue'
-import Title from '@/components/app-title.vue'
 
 export default {
   name: 'Layout',
   components: {
     AppTopnav,
-    Title,
-    AppHeader,
     AppFooter,
     AppPhone,
     AppHeaderSticky,

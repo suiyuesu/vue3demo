@@ -5,22 +5,35 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-06-12 09:03:42
  * @LastEditors: sj
- * @LastEditTime: 2022-08-26 16:23:49
+ * @LastEditTime: 2022-09-01 14:27:58
 -->
 <template>
   <div class="page-home">
-    <div class="home-entry">
-      <div class="container">
-        <!-- 左侧分类 -->
-        <HomeCategory />
-        <!-- 轮播 -->
-        <HomeBanner />
-      </div>
+    <div class="f5">
+      <Title :title="'产品体系'" />
+      <el-row :gutter="10">
+        <el-col :span="8">
+          <div class="grid-content ep-bg-purple">sfdgs</div>
+        </el-col>
+        <el-col :span="8">
+          <div class="grid-content ep-bg-purple">sfdgs</div>
+        </el-col>
+        <el-col :span="8">
+          <div class="grid-content ep-bg-purple">sfdgs</div>
+        </el-col>
+      </el-row>
     </div>
+    <div class="ff">546</div>
   </div>
 </template>
 <script setup>
-import HomeCategory from './components/home-category'
-import HomeBanner from './components/home-banner'
+import Title from '@/components/app-title.vue'
 </script>
-<style scoped lang="less"></style>
+<style scoped lang="less">
+.f5 {
+  background-color: @backColor;
+}
+.ff {
+  background-color: #fff;
+}
+</style>

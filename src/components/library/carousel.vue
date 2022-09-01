@@ -5,7 +5,7 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-06-25 17:19:50
  * @LastEditors: sj
- * @LastEditTime: 2022-08-26 16:55:42
+ * @LastEditTime: 2022-09-01 13:40:21
 -->
 <template>
   <div class="carouselContainer" @mouseenter="stop()" @mouseleave="start()">
@@ -149,6 +149,7 @@ export default {
       img {
         width: 100%;
         height: 100%;
+        display: block;
       }
     }
     &-indicator {
