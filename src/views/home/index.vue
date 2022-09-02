@@ -5,7 +5,7 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-06-12 09:03:42
  * @LastEditors: sj
- * @LastEditTime: 2022-09-02 16:45:06
+ * @LastEditTime: 2022-09-02 18:00:41
 -->
 <template>
   <div class="page-home">
@@ -82,7 +82,7 @@
             </div>
           </el-col>
         </el-row>
-        <div class="more">查看更多</div>
+        <div class="more" @click="link('addValues')">查看更多</div>
       </div>
     </div>
     <div class="ff">
@@ -90,7 +90,7 @@
         <Title :title="'案例展示'" />
         <el-row :gutter="30" justify="space-evenly">
           <el-col
-            @click="link"
+            @click="link('example')"
             :span="8"
             v-for="(item, i) in productList.anliList"
             :key="i"
@@ -102,17 +102,44 @@
         </el-row>
       </div>
     </div>
+    <div class="E2">
+      <div class="layout">
+        <Title :title="'新闻资讯'" />
+        <el-row>
+          <el-col :span="10" align="middle">
+            <img :src="newsImg" alt="" />
+          </el-col>
+          <el-col :span="13" class="newDetail">
+            <div class="newsItem">
+              <p class="news-title">数字化赋能基层医疗，助推新时代乡村复兴</p>
+              <p>
+                麟康医疗受邀出席“中医药助力山区26县高质量发展论坛——数字化应用专场”活动，与各院校专家学者、企业代表一起，“共话”数智医疗，“共谋”山区发展。
+              </p>
+            </div>
+            <div class="newsItem">
+              <p class="news-title">
+                麟康医疗与唐古信息就基层中医药创新发展达成战略合作
+              </p>
+              <p>
+                近日，杭州麟康医疗科技有限公司（以下简称“麟康医疗”）和杭州唐古信息科技有限公司（以下简称“唐古信息”）达成战略合作。
+              </p>
+            </div>
+          </el-col>
+        </el-row>
+      </div>
+    </div>
   </div>
 </template>
 <script setup>
 import { useStore } from 'vuex'
 import Title from '@/components/app-title.vue'
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import home3 from '@/static/icon/3jianguan.png'
 import anli1 from '@/static/imgs/3anli1k.jpg'
 import anli2 from '@/static/imgs/4anli2k.jpg'
 import anli3 from '@/static/imgs/5anli3.jpg'
+import news from '@/static/imgs/6xinwen.png'
 const store = useStore()
 const router = useRouter()
 const productList = reactive({
@@ -186,9 +213,10 @@ const productList = reactive({
   ],
   anliList: [anli1, anli2, anli3],
 })
-const link = () => {
-  store.commit('user/setActiveTab', 'example')
-  router.push('/example')
+const newsImg = ref(news)
+const link = (path) => {
+  store.commit('user/setActiveTab', path)
+  router.push(`/${path}`)
 }
 </script>
 <style scoped lang="less">
@@ -197,6 +225,9 @@ const link = () => {
 }
 .ff {
   background-color: #fff;
+}
+.E2 {
+  background-color: #e2ecf8;
 }
 .layout {
   .layout();
@@ -327,6 +358,28 @@ const link = () => {
   cursor: pointer;
   img {
     .hoverScale();
+  }
+}
+
+.newDetail {
+  .flexCenter();
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.newsItem {
+  width: 555px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  color: #888;
+  .news-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #666;
+    &:hover {
+      color: @themeColor;
+    }
   }
 }
 </style>
