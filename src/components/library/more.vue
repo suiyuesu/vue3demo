@@ -8,10 +8,7 @@
  * @LastEditTime: 2022-08-06 09:36:29
 -->
 <template>
-  <RouterLink
-    :to="path"
-    class="xtx-more"
-  >
+  <RouterLink :to="path" class="xtx-more">
     <span>查看全部</span>
     <i class="iconfont icon-angle-right" />
   </RouterLink>
@@ -23,13 +20,13 @@ export default {
   props: {
     path: {
       type: String,
-      default: '/'
-    }
-  }
+      default: '/',
+    },
+  },
 }
 </script>
 
-<style scoped lang='less'>
+<style scoped lang="less">
 .xtx-more {
   margin-bottom: 2px;
   span {
@@ -46,8 +43,9 @@ export default {
     color: #ccc;
   }
   &:hover {
-    span,i {
-      color: @xtxColor;
+    span,
+    i {
+      color: @themeColor;
     }
   }
 }

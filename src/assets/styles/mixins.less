@@ -1,10 +1,31 @@
 // 鼠标经过上移阴影动画
 .hoverShadow () {
   transition: all .5s;
-
   &:hover {
-    // transform: translate3d(0, -3px, 0);
       background-color: #fff;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+      .boxShadow()
+    }
   }
+  
+        // 鼠标经过放大
+        .hoverScale () {
+          transition: all .5s;
+      &:hover {
+          transform: scale(1.5);
+          }
+          }
+          
+          .flexCenter () {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          
+          .boxShadow () {
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  }
+.layout () {
+  width: 1240px;
+  margin: 0 auto;
+  padding: 30px 0;
 }

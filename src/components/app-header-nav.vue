@@ -7,29 +7,14 @@
       @mouseenter="show(item)"
       @mouseleave="hide(item)"
     >
-      <router-link
-        :to="`/category/${item.id}`"
-        @click="hide(item)"
-      >{{
+      <router-link :to="`/category/${item.id}`" @click="hide(item)">{{
         item.name
       }}</router-link>
-      <div
-        class="layer"
-        :class="{ open: item.open }"
-      >
+      <div class="layer" :class="{ open: item.open }">
         <ul>
-          <li
-            v-for="sub in item.children"
-            :key="sub.id"
-          >
-            <router-link
-              :to="`/category/sub/${sub.id}`"
-              @click="hide(item)"
-            >
-              <img
-                :src="sub.picture"
-                alt=""
-              >
+          <li v-for="sub in item.children" :key="sub.id">
+            <router-link :to="`/category/sub/${sub.id}`" @click="hide(item)">
+              <img :src="sub.picture" alt="" />
               <p>{{ sub.name }}</p>
             </router-link>
           </li>
@@ -60,9 +45,9 @@ export default {
     return {
       list,
       hide,
-      show
+      show,
     }
-  }
+  },
 }
 </script>
 
@@ -86,8 +71,8 @@ export default {
     }
     &:hover {
       > a {
-        color: @xtxColor;
-        border-bottom: 1px solid @xtxColor;
+        color: @themeColor;
+        border-bottom: 1px solid @themeColor;
       }
       // > .layer {
       //   &.open {
@@ -131,7 +116,7 @@ export default {
       }
       &:hover {
         p {
-          color: @xtxColor;
+          color: @themeColor;
         }
       }
     }

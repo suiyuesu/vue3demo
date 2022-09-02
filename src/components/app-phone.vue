@@ -5,12 +5,13 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-08-25 14:49:05
  * @LastEditors: sj
- * @LastEditTime: 2022-08-26 16:35:01
+ * @LastEditTime: 2022-09-02 10:47:44
 -->
 <template>
   <div class="container" @mouseenter="show = true" @mouseleave="show = false">
     <div class="layout">
-      <img :src="imgSrc" style="width: 40px" />
+      <!-- <img :src="imgSrc" style="width: 40px" /> -->
+      <ChatLineSquare style="width: 40px; height: 40px" />
       <div>我要咨询</div>
       <di :class="['phone', show ? '' : 'phoneW']"> 17366656508 </di>
     </div>
@@ -19,14 +20,14 @@
 
 <script setup>
 import { ref, watch } from 'vue'
-import img1 from '@/static/icon/4woyaozixuna.png'
-import img2 from '@/static/icon/5woyaozixunb.png'
+// import img1 from '@/static/icon/4woyaozixuna.png'
+// import img2 from '@/static/icon/5woyaozixunb.png'
 const show = ref(false)
-const imgSrc = ref(img1)
+// const imgSrc = ref(img1)
 
-watch(show, (v) => {
-  imgSrc.value = v ? img2 : img1
-})
+// watch(show, (v) => {
+//   imgSrc.value = v ? img2 : img1
+// })
 </script>
 
 <style lang="less" scoped>
@@ -39,7 +40,7 @@ watch(show, (v) => {
   background-color: #fff;
   padding: 10px 0;
   z-index: 999;
-  color: @xtxColor;
+  color: @themeColor;
   box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.075);
   border-radius: 13px;
   cursor: pointer;
@@ -63,9 +64,9 @@ watch(show, (v) => {
   text-align: center;
   // display: none !important;
   overflow: hidden;
-  transition: all 0.3s;
+  transition: all 0.05s;
   border-radius: 40px 0 0 40px;
-  background-color: @xtxColor;
+  background-color: @themeColor;
   color: #fff;
   font-size: 18px;
   z-index: 998;
@@ -79,6 +80,6 @@ watch(show, (v) => {
 }
 .container:hover {
   color: #fff;
-  background-color: @xtxColor;
+  background-color: @themeColor;
 }
 </style>

@@ -5,7 +5,7 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-06-25 10:23:45
  * @LastEditors: sj
- * @LastEditTime: 2022-08-26 16:10:26
+ * @LastEditTime: 2022-09-02 09:37:51
 -->
 <template>
   <div class="app-header-sticky" :class="{ show: y >= 78 }">
@@ -37,7 +37,6 @@
 </template>
 
 <script setup>
-import AppHeaderNav from './app-header-nav'
 import { useStore } from 'vuex'
 import { computed } from 'vue'
 import { useWindowScroll } from '@vueuse/core'
@@ -84,14 +83,14 @@ const handleSelect = (key, keyPath) => {
     display: flex;
     text-align: center;
     padding-left: 40px;
-    border-left: 2px solid @xtxColor;
+    border-left: 2px solid @themeColor;
     a {
       width: 38px;
       margin-right: 40px;
       font-size: 16px;
       line-height: 1;
       &:hover {
-        color: @xtxColor;
+        color: @themeColor;
       }
     }
   }

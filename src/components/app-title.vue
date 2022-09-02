@@ -5,7 +5,7 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-08-26 16:16:57
  * @LastEditors: sj
- * @LastEditTime: 2022-09-01 13:49:55
+ * @LastEditTime: 2022-09-02 10:33:40
 -->
 <template>
   <div class="titleContainer">
@@ -26,7 +26,7 @@ defineProps({
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 20px 0 10px;
+  margin: 20px 0;
 }
 .title {
   font-size: 30px;
@@ -37,6 +37,6 @@ defineProps({
 .line {
   width: 50px;
   height: 2px;
-  background-color: @xtxColor;
+  background-color: @themeColor;
 }
 </style>
