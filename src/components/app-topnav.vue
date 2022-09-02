@@ -5,7 +5,7 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-06-12 10:51:05
  * @LastEditors: sj
- * @LastEditTime: 2022-09-01 13:41:44
+ * @LastEditTime: 2022-09-02 16:54:51
 -->
 <template>
   <div class="header">
@@ -15,21 +15,22 @@
       mode="horizontal"
       :ellipsis="false"
       @select="handleSelect"
+      router
     >
       <el-menu-item index="0" class="layout">
         <img src="../static/logo/logo.png" style="height: 45px" />
       </el-menu-item>
       <div class="flex-grow" />
-      <el-menu-item index="1"> 网站首页 </el-menu-item>
-      <el-sub-menu index="2">
+      <el-menu-item index="/"> 网站首页 </el-menu-item>
+      <el-sub-menu index="product">
         <template #title> 产品体系 </template>
-        <el-menu-item index="2-1"> 智慧门诊SaaS </el-menu-item>
-        <el-menu-item index="2-2"> 增值运营服务 </el-menu-item>
-        <el-menu-item index="2-3"> 数智卫监 </el-menu-item>
+        <el-menu-item index="outpatient"> 智慧门诊SaaS </el-menu-item>
+        <el-menu-item index="addValues"> 增值运营服务 </el-menu-item>
+        <el-menu-item index="semi"> 数智卫监 </el-menu-item>
       </el-sub-menu>
-      <el-menu-item index="3"> 服务案例 </el-menu-item>
-      <el-menu-item index="4"> 新闻咨询 </el-menu-item>
-      <el-menu-item index="5"> 关于麟康 </el-menu-item>
+      <el-menu-item index="example"> 服务案例 </el-menu-item>
+      <el-menu-item index="news"> 新闻咨询 </el-menu-item>
+      <el-menu-item index="about"> 关于麟康 </el-menu-item>
     </el-menu>
     <div style="height: 700px">
       <XtxCarousel auto-play :sliders="bannerList.banner" />
@@ -58,17 +59,15 @@ const activeIndex = computed(() => {
 const bannerList = reactive({
   banner: [{ imgUrl: home1 }, { imgUrl: home2 }],
 })
-
 watch(activeIndex, (key) => {
-  console.log(key)
   let data = []
-  if (key == 1) {
+  if (key == '/') {
     data = [{ imgUrl: home1 }, { imgUrl: home2 }]
-  } else if (key == 3) {
+  } else if (key == 'example') {
     data = [{ imgUrl: server }]
-  } else if (key == 4) {
+  } else if (key == 'news') {
     data = [{ imgUrl: news }]
-  } else if (key == 5) {
+  } else if (key == 'about') {
     data = [{ imgUrl: about }]
   } else {
     data = [{ imgUrl: product }]

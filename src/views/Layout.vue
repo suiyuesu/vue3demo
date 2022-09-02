@@ -5,7 +5,7 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-05-28 15:11:07
  * @LastEditors: sj
- * @LastEditTime: 2022-09-02 11:22:57
+ * @LastEditTime: 2022-09-02 16:55:39
 -->
 <template>
   <!-- 顶部 -->
@@ -41,7 +41,10 @@ export default {
   props: {},
   setup() {
     const store = useStore()
-    store.dispatch('category/getList')
+    const data = JSON.parse(localStorage.getItem('PC_STORE') || '{}')
+    if (Object.keys(data).length) {
+      store.commit('user/setActiveTab', data.user.activeTab)
+    }
   },
 }
 </script>

@@ -5,7 +5,7 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-06-12 09:03:42
  * @LastEditors: sj
- * @LastEditTime: 2022-09-02 15:41:18
+ * @LastEditTime: 2022-09-02 16:45:06
 -->
 <template>
   <div class="page-home">
@@ -108,11 +108,13 @@
 import { useStore } from 'vuex'
 import Title from '@/components/app-title.vue'
 import { reactive } from 'vue'
+import { useRouter } from 'vue-router'
 import home3 from '@/static/icon/3jianguan.png'
 import anli1 from '@/static/imgs/3anli1k.jpg'
 import anli2 from '@/static/imgs/4anli2k.jpg'
 import anli3 from '@/static/imgs/5anli3.jpg'
 const store = useStore()
+const router = useRouter()
 const productList = reactive({
   list: [
     {
@@ -185,7 +187,8 @@ const productList = reactive({
   anliList: [anli1, anli2, anli3],
 })
 const link = () => {
-  store.commit('user/setActiveTab', 3)
+  store.commit('user/setActiveTab', 'example')
+  router.push('/example')
 }
 </script>
 <style scoped lang="less">
