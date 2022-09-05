@@ -5,7 +5,7 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-06-12 09:03:42
  * @LastEditors: sj
- * @LastEditTime: 2022-09-05 13:41:28
+ * @LastEditTime: 2022-09-05 14:03:47
 -->
 <template>
   <div class="page-home">
@@ -16,13 +16,10 @@
           <el-col :span="8" v-for="item in productList.list" :key="item.id">
             <div class="productItem">
               <div class="img">
-                <!-- <FirstAidKit
-                style="width: 40px; height: 40px; color: #fff"
-                v-if="item.id == 1"
-              /> -->
-                <FirstAidKit class="icon" v-if="item.id == 1" />
-                <OfficeBuilding class="icon" v-else-if="item.id == 2" />
-                <img :src="item.icon" alt="" v-else />
+                <component
+                  :is="item.icon"
+                  style="width: 40px; height: 40px; color: #fff"
+                ></component>
               </div>
               <div class="title">{{ item.title }}</div>
               <div class="subTitle">{{ item.subTitle }}</div>
@@ -159,6 +156,7 @@ const productList = reactive({
   list: [
     {
       id: 1,
+      icon: <FirstAidKit class='icon' />,
       title: '智慧门诊SaaS',
       subTitle: '资源共享，降本增效',
       content:
@@ -166,6 +164,7 @@ const productList = reactive({
     },
     {
       id: 2,
+      icon: <OfficeBuilding />,
       title: '增值运营服务',
       subTitle: '细耕场景，多元赋能',
       content:
@@ -173,7 +172,7 @@ const productList = reactive({
     },
     {
       id: 3,
-      icon: home3,
+      icon: <FirstAidKit />,
       title: '数智卫监',
       subTitle: '智能联动，精细管控',
       content:
