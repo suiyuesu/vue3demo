@@ -5,7 +5,7 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-06-12 09:03:42
  * @LastEditors: sj
- * @LastEditTime: 2022-09-02 18:00:41
+ * @LastEditTime: 2022-09-05 13:41:28
 -->
 <template>
   <div class="page-home">
@@ -106,8 +106,21 @@
       <div class="layout">
         <Title :title="'新闻资讯'" />
         <el-row>
-          <el-col :span="10" align="middle">
+          <el-col :span="10" align="middle" class="newsImg">
             <img :src="newsImg" alt="" />
+            <div class="newsImg-detail">
+              <div class="newsImg-detail-container">
+                <header>
+                  稳步提升，麟康医疗顺利通过ISO9001质量管理体系认证
+                </header>
+                <p>
+                  &emsp;&emsp;近日，杭州麟康医疗科技有限公司顺利通过了ISO9001质量管理体系认证，标志着麟康医疗不仅在各软件系统整合上已达到国际标准。
+                </p>
+                <div>
+                  <span class="news-button">查看详情</span>
+                </div>
+              </div>
+            </div>
           </el-col>
           <el-col :span="13" class="newDetail">
             <div class="newsItem">
@@ -360,19 +373,61 @@ const link = (path) => {
     .hoverScale();
   }
 }
-
+.newsImg {
+  position: relative;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  &-detail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+    color: #fff;
+    cursor: pointer;
+    &-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      text-align: left;
+      padding: 20px;
+      header {
+        font-size: 18px;
+      }
+      p {
+        padding: 10px 0;
+        border-bottom: 1px solid #fff;
+      }
+      .news-button {
+        margin-top: 10px;
+        border: 1px solid #fff;
+        padding: 2px 4px;
+        float: right;
+      }
+    }
+  }
+  &:hover &-detail {
+    display: block;
+  }
+}
 .newDetail {
   .flexCenter();
   flex-direction: column;
   justify-content: space-evenly;
 }
-
 .newsItem {
   width: 555px;
   padding: 15px;
   background-color: #fff;
   border-radius: 10px;
   color: #888;
+  cursor: pointer;
   .news-title {
     font-size: 18px;
     margin-bottom: 10px;
