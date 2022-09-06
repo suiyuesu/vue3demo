@@ -77,7 +77,7 @@ const handleSelect = (key, keyPath) => {
   .logo {
     width: 200px;
     height: 80px;
-    background: url(../assets/images/img1.jpg) no-repeat right 2px;
+    background: url(../static/images/img1.jpg) no-repeat right 2px;
     background-size: 160px auto;
   }
   .right {

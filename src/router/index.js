@@ -7,7 +7,7 @@
  * @LastEditors: sj
  * @LastEditTime: 2022-09-02 16:54:13
  */
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory, beforeRouteUpdate } from 'vue-router'
 
 const routes = [
   {
@@ -21,7 +21,8 @@ const routes = [
         path: '/example', component: () => import('@/views/example/index')
       },
       {
-        path: '/news', component: () => import('@/views/news/index')
+        path: 'news', component: () => import('@/views/news/index')
+
       },
       {
         path: '/about', component: () => import('@/views/about/index')
