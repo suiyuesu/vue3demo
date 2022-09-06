@@ -12,7 +12,7 @@
     <div class="ff">
       <div class="layout">
         <Title :title="'公司介绍'" />
-        <el-row :gutter="30" justify="space-evenly" class="about">
+        <el-row :gutter="30" justify="space-evenly" class="introduce about">
           <el-col :span="11">
             <div class="about-img">
               <img :src="productList?.img" />
@@ -29,10 +29,15 @@
     <div class="f5">
       <div class="layout">
         <el-row :gutter="70" justify="space-evenly">
-          <el-col :span="8" v-for="item in productList.list" :key="item.id">
+          <el-col
+            :span="8"
+            v-for="item in productList.list"
+            :key="item.id"
+            class="qiye"
+          >
             <div class="productItem">
               <div class="img">
-                <!-- <img :src="item.icon" alt="" /> -->
+                <img :src="item.icon" alt="" />
               </div>
               <div class="title">{{ item.title }}</div>
               <div class="subTitle">{{ item.subTitle }}</div>
@@ -41,14 +46,77 @@
         </el-row>
       </div>
     </div>
+    <div class="ff">
+      <div class="layout">
+        <Title :title="'联系我们'" />
+        <el-row :gutter="30" justify="space-evenly" class="contact">
+          <el-col :span="6">
+            <div class="contact-title">
+              <header>{{ productList.concatList?.title }}</header>
+              <div
+                v-for="(item, i) in productList.concatList.concatListMain"
+                :key="i"
+                class="contact-content"
+              >
+                <div class="contact-icon">
+                  <i class="iconfont icondidian" />
+                </div>
+                <div class="contact-main">
+                  <p>{{ item?.main }}</p>
+                </div>
+              </div>
+              <div class="contact-botton">
+                <p>{{ productList.concatList?.concatPhone }}</p>
+                <p>{{ productList.concatList?.concatHint }}</p>
+              </div>
+            </div>
+          </el-col>
+          <el-col :span="18">
+            <div class="contact-map">
+              <iframe
+                src="../../../public/map.html"
+                class="contact-iframeMap"
+              ></iframe>
+              <!-- <div class="contact-loader">
+                <img :src="mapIcon" />
+              </div> -->
+            </div>
+          </el-col>
+        </el-row>
+      </div>
+    </div>
+    <div class="f5">
+      <div class="layout">
+        <Title :title="'加入我们'" />
+        <div class="join">
+          <div class="join-title">
+            <p>与优秀的人，做专业的事！</p>
+          </div>
+          <div class="join-title">
+            <p>
+              麟康诚邀各优秀人才、毕业生、在校生加入，与我们一起，探索医疗健康更多可能
+            </p>
+          </div>
+          <div class="join-main">
+            <p>发送邮件，投递简历，开启你和麟康的故事</p>
+          </div>
+          <div class="join-area">
+            <p>hr@linkang-medical.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import Title from '@/components/app-title.vue'
-import mainImg from '@assets/images/about/gongsi.jpg'
-
+import mainImg from '@/static/images/about/gongsi.jpg'
+import qiyeImgOne from '@/static/images/about/icon/1yuanjing.png'
+import qiyeImgTwo from '@/static/images/about/icon/2shiming.png'
+import qiyeImgThree from '@/static/images/about/icon/3jiazhi.png'
+import mapIcon from '@/static/images/loader.gif'
 import { reactive } from 'vue'
 
 const productList = reactive({
@@ -59,21 +127,33 @@ const productList = reactive({
       id: 1,
       title: ' 企业愿景',
       subTitle: ' 让优质的医疗服务触手可及。',
-      // icon: '../../assets/images/about/icon/1yuanjing.jpg',
+      icon: qiyeImgOne,
     },
     {
       id: 2,
       title: ' 企业理念',
       subTitle: ' 坚持做好民营医疗机构服务品牌。',
-      // icon: '../../assets/images/about/icon/2shiming.jpg',
+      icon: qiyeImgTwo,
     },
     {
       id: 3,
       title: ' 企业价值观',
       subTitle: ' 创新、诚信、笃行。',
-      // icon: '../../assets/images/about/icon/3jiazhi.jpg',
+      icon: qiyeImgThree,
     },
   ],
+  concatList: {
+    title: '预约咨询，您将获得：',
+    concatPhone: '现在就拨打咨询电话：17366656508',
+    concatHint: '我们将竭诚为您服务',
+    concatListMain: [
+      { id: 1, main: '1V1客户服务' },
+      { id: 2, main: '专业技术咨询' },
+      { id: 3, main: '全方位产品解读' },
+      { id: 4, main: '成熟定制化解决方案' },
+      { id: 5, main: '成功客户案例分享' },
+    ],
+  },
 })
 </script>
 
@@ -92,8 +172,11 @@ const productList = reactive({
 }
 .about /deep/ .el-col {
   padding: 0 !important;
-  background: #4eabe1;
 }
+.contact /deep/ .el-col {
+  padding: 0 !important;
+}
+
 .about {
   height: 370px;
   position: relative;
@@ -111,6 +194,12 @@ const productList = reactive({
       line-height: 38px;
     }
   }
+}
+.introduce {
+  background: #4eabe1;
+}
+.qiye {
+  padding-bottom: 30px;
 }
 .productItem {
   .flexCenter();
@@ -141,10 +230,70 @@ const productList = reactive({
     padding: 0 0 50px 0;
   }
 }
-
-.icon {
-  width: 35px;
-  height: 35px;
-  color: #fff;
+.contact {
+  color: #888888;
+  &-title {
+    height: 25px;
+    line-height: 25px;
+  }
+  &-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+  &-icon {
+    width: 25px;
+    height: 25px;
+  }
+  &-icon /deep/ .iconfont {
+    color: #4eabe1 !important;
+    font-size: 16px !important;
+  }
+  &-botton {
+    margin-top: 15px;
+  }
+  &-map {
+    width: 100%;
+    height: 300px !important;
+  }
+  &-loader {
+  }
+  &-iframeMap {
+    width: 100%;
+    height: 100%;
+  }
+}
+.join {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  &-title {
+    color: #32abe0;
+    p {
+      text-align: center;
+      margin-bottom: 5px;
+    }
+  }
+  &-main {
+    color: #888888;
+    p {
+      text-align: center;
+      margin: 20px 0 15px;
+    }
+  }
+  &-area {
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    p {
+      width: 228px;
+      height: 30px;
+      text-align: center;
+      display: inline-block;
+      background: #32abe0;
+      line-height: 30px;
+      border-radius: 20px;
+    }
+  }
 }
 </style>
