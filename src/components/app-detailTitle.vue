@@ -11,11 +11,13 @@
   <div class="titleContainer">
     <div class="title">{{ title }}</div>
     <div class="icon"><i class="iconfont icona-16Cjishishizhong" /></div>
-    <div class="time">{{ time }}</div>
+    <div class="time">{{ moment(time).format(DateTimeFormatSimpleOnly) }}</div>
   </div>
 </template>
 
 <script setup>
+import moment from 'moment'
+import { DateTimeFormatSimpleOnly } from '@/api/datatime.js'
 defineProps({
   title: '',
   time: '',
