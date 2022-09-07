@@ -531,12 +531,9 @@ Mock.mock("/api/add", "post", (params) => {
   let newData = JSON.parse(params.body);
   newData.id = Random.guid();
   tableList.push(newData);
-  console.log(params, "params");
   return {
     code: "200",
     message: "success",
     data: tableOneList,
   };
 });
-
-
