@@ -69,21 +69,7 @@ import moment from 'moment'
 import Title from '@/components/app-title.vue'
 import { DateTimeFormat } from '@/api/datatime.js'
 import DetailTitle from '@/components/app-detailTitle.vue'
-import '@/mock/news-0824.js'
-import '@/mock/news-0712.js'
-import '@/mock/news-0630.js'
-import '@/mock/news-0522.js'
-import '@/mock/news-0424.js'
-import '@/mock/news-0420.js'
-import '@/mock/news-1203.js'
-import '@/mock/news-1115.js'
-import '@/mock/news-1017.js'
-import '@/mock/news-1016.js'
-import '@/mock/news-0614.js'
-import '@/mock/news-0603.js'
-import '@/mock/news-0510.js'
-import '@/mock/news-1224.js'
-import '@/mock/news-1222.js'
+import '@/mock/news.js'
 import mockApi from '../../api/mockApi.js'
 
 const store = useStore()
@@ -222,107 +208,9 @@ watch(
     if (v.query.id) {
       const detailData = sessionStorage.getItem('newsDetailItem')
       newsDetailItem.value = JSON.parse(detailData)
-      if (newsDetailId.value == 1) {
+      if (newsDetailId) {
         mockApi
-          .get0824Detail()
-          .then((res) => {
-            newsOneDetail.value = res?.data
-          })
-          .catch((res) => {})
-      } else if (newsDetailId.value == 2) {
-        mockApi
-          .get0712Detail()
-          .then((res) => {
-            newsOneDetail.value = res?.data
-          })
-          .catch((res) => {})
-      } else if (newsDetailId.value == 3) {
-        mockApi
-          .get0630Detail()
-          .then((res) => {
-            newsOneDetail.value = res?.data
-          })
-          .catch((res) => {})
-      } else if (newsDetailId.value == 4) {
-        mockApi
-          .get0522Detail()
-          .then((res) => {
-            newsOneDetail.value = res?.data
-          })
-          .catch((res) => {})
-      } else if (newsDetailId.value == 5) {
-        mockApi
-          .get0424Detail()
-          .then((res) => {
-            newsOneDetail.value = res?.data
-          })
-          .catch((res) => {})
-      } else if (newsDetailId.value == 6) {
-        mockApi
-          .get0420Detail()
-          .then((res) => {
-            newsOneDetail.value = res?.data
-          })
-          .catch((res) => {})
-      } else if (newsDetailId.value == 7) {
-        mockApi
-          .get1203Detail()
-          .then((res) => {
-            newsOneDetail.value = res?.data
-          })
-          .catch((res) => {})
-      } else if (newsDetailId.value == 8) {
-        mockApi
-          .get1115Detail()
-          .then((res) => {
-            newsOneDetail.value = res?.data
-          })
-          .catch((res) => {})
-      } else if (newsDetailId.value == 9) {
-        mockApi
-          .get1017Detail()
-          .then((res) => {
-            newsOneDetail.value = res?.data
-          })
-          .catch((res) => {})
-      } else if (newsDetailId.value == 10) {
-        mockApi
-          .get1016Detail()
-          .then((res) => {
-            newsOneDetail.value = res?.data
-          })
-          .catch((res) => {})
-      } else if (newsDetailId.value == 11) {
-        mockApi
-          .get0614Detail()
-          .then((res) => {
-            newsOneDetail.value = res?.data
-          })
-          .catch((res) => {})
-      } else if (newsDetailId.value == 12) {
-        mockApi
-          .get0603Detail()
-          .then((res) => {
-            newsOneDetail.value = res?.data
-          })
-          .catch((res) => {})
-      } else if (newsDetailId.value == 13) {
-        mockApi
-          .get0510Detail()
-          .then((res) => {
-            newsOneDetail.value = res?.data
-          })
-          .catch((res) => {})
-      } else if (newsDetailId.value == 14) {
-        mockApi
-          .get1224Detail()
-          .then((res) => {
-            newsOneDetail.value = res?.data
-          })
-          .catch((res) => {})
-      } else if (newsDetailId.value == 15) {
-        mockApi
-          .get1222Detail()
+          .getDetail(v.query.id)
           .then((res) => {
             newsOneDetail.value = res?.data
           })
