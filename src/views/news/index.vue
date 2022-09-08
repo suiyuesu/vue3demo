@@ -36,7 +36,7 @@
           justify="space-evenly"
           class="news"
           @click="link(item)"
-          v-for="(item, i) in productList.list"
+          v-for="(item, i) in newsList.list"
           :key="i"
         >
           <el-col :span="2">
@@ -76,7 +76,7 @@ import mockApi from '../../api/mockApi.js'
 const store = useStore()
 const route = useRoute()
 const router = useRouter()
-const productList = reactive({
+const newsList = reactive({
   list: [
     {
       id: 1,
