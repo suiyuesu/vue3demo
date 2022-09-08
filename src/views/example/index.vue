@@ -29,7 +29,7 @@
     <div class="ff">
       <div class="layout">
         <Title :title="'品质服务'" />
-        <el-row :gutter="70" justify="space-evenly">
+        <el-row :gutter="70" justify="space-evenly" class="exampleMain">
           <el-col
             :span="8"
             v-for="item in exampleList.serverList"
@@ -50,7 +50,7 @@
     <div class="ff">
       <div class="layout">
         <Title :title="'案例展示'" />
-        <el-row :gutter="70" justify="space-evenly">
+        <el-row :gutter="70" justify="space-evenly" class="exampleMain">
           <el-col
             :span="8"
             v-for="item in exampleList.showList.imgList"
@@ -166,14 +166,14 @@ const exampleList = reactive({
 }
 /deep/ .el-row {
   margin: 0 !important;
+  padding: 0 40px;
 }
-.exampleServer /deep/ .el-col {
+.exampleMain /deep/ .el-col {
   padding: 0 !important;
 }
 .exampleShow /deep/ .el-col {
   padding: 0 !important;
 }
-
 .exampleTitle {
   &-title {
     p {
@@ -203,7 +203,7 @@ const exampleList = reactive({
     font-size: 14px;
     .title {
       display: flex;
-      align-items: left;
+      align-items: center;
       justify-content: left;
       color: #32abe0;
       font-size: 18px;
@@ -226,16 +226,18 @@ const exampleList = reactive({
   .flexCenter();
   &-img {
     padding-top: 30px;
+    img {
+      width: 360px;
+    }
   }
   &-content {
     background-color: @backColor;
     padding: 10px;
-    margin-top: 10px;
+    margin: 10px;
     border-radius: 12px;
     color: #888888;
     header {
       font-size: 18px;
-
       margin: 5px 0;
     }
     p {
