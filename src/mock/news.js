@@ -503,27 +503,48 @@ let table1222List = [
  */
 Mock.mock(RegExp('/api/mockGetList' + '.*'), "get", (params) => {
   const detailDataId = params?.url.split('=')[1]
+  const data = (() => {
+    switch (Number(detailDataId)) {
+      case 1:
+        return table0824List
+      case 2:
+        return table0712List
+      case 3:
+        return table0630List
+      case 4:
+        return table0522List
+      case 5:
+        return table0424List
+      case 6:
+        return table0420List
+      case 7:
+        return table1203List
+      case 8:
+        return table1115List
+      case 9:
+        return table1017List
+      case 10:
+        return table1016List
+      case 11:
+        return table0614List
+      case 12:
+        return table0603List
+      case 13:
+        return table0510List
+      case 14:
+        return table1224List
+      case 15:
+        return table1222List
+      default:
+        return [];
+    }
+  })()
   return {
     code: "200",
-    data: detailDataId == 1 ? table0824List :
-      detailDataId == 2 ? table0712List :
-        detailDataId == 3 ? table0630List :
-          detailDataId == 4 ? table0522List :
-            detailDataId == 5 ? table0424List :
-              detailDataId == 6 ? table0420List :
-                detailDataId == 7 ? table1203List :
-                  detailDataId == 8 ? table1115List :
-                    detailDataId == 9 ? table1017List :
-                      detailDataId == 10 ? table1016List :
-                        detailDataId == 11 ? table0614List :
-                          detailDataId == 12 ? table0603List :
-                            detailDataId == 13 ? table0510List :
-                              detailDataId == 14 ? table1224List :
-                                detailDataId == 15 ? table1222List : [],
+    data
   };
 
 });
-
 
 
 /** post请求添加表格数据 */

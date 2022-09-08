@@ -16,13 +16,17 @@
           :time="newsDetailItem?.time"
           :newsDetailId="newsDetailItem?.id"
         />
-        <div v-for="(item, i) in newsOneDetail" :key="i" class="newsDetail">
+        <div
+          v-for="(item, index) in newsOneDetail"
+          :key="index"
+          class="newsDetail"
+        >
           <div class="newsDetail-section">
             <p class="newsDetail-sectionTitleOne">{{ item?.subContentOne }}</p>
             <p class="newsDetail-sectionTitleTwo">{{ item?.subContentTwo }}</p>
             <p v-for="(v, i) in item.content" :key="i">{{ v?.name }}</p>
           </div>
-          <div class="newsDetail-img" v-for="(c, i) in item.imgList" :key="i">
+          <div class="newsDetail-img" v-for="(c, ci) in item.imgList" :key="ci">
             <img :src="c.img" />
           </div>
         </div>

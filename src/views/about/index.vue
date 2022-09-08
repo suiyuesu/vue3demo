@@ -74,8 +74,9 @@
           <el-col :span="18">
             <div class="contact-map">
               <iframe
-                src="../../../public/map.html"
+                src="./map.html"
                 class="contact-iframeMap"
+                frameborder="0"
               ></iframe>
               <!-- <div class="contact-loader">
                 <img :src="mapIcon" />
