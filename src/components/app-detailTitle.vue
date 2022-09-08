@@ -11,7 +11,13 @@
   <div class="titleContainer">
     <div class="title">{{ title }}</div>
     <div class="icon"><i class="iconfont icona-16Cjishishizhong" /></div>
-    <div class="time">{{ moment(time).format(DateTimeFormatSimpleOnly) }}</div>
+    <div class="time">
+      {{
+        newsDetailId == 14 || newsDetailId == 15
+          ? '2014-12-07'
+          : moment(time).format(DateTimeFormatSimpleOnly)
+      }}
+    </div>
   </div>
 </template>
 
@@ -21,6 +27,7 @@ import { DateTimeFormatSimpleOnly } from '@/api/datatime.js'
 defineProps({
   title: '',
   time: '',
+  newsDetailId: '',
 })
 </script>
 
