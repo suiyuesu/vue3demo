@@ -4,8 +4,8 @@
  * @Author: 苏
  * @email: 1373842098@qq.com
  * @Date: 2022-09-02 15:42:37
- * @LastEditors: sj
- * @LastEditTime: 2022-09-02 15:42:38
+ * @LastEditors: linxi
+ * @LastEditTime: 2022-09-09 13:42:59
 -->
 <template>
   <div class="page-example">
@@ -168,7 +168,6 @@ const exampleList = reactive({
       { img: exampleShowTwo, id: '2' },
       { img: exampleShowThree, id: '3' },
     ],
-
     titleOne: '基层医疗机构赋能',
     titleTwo: '区域医疗赋能',
     titleThree: '卫监部门赋能',

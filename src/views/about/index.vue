@@ -4,8 +4,8 @@
  * @Author: 苏
  * @email: 1373842098@qq.com
  * @Date: 2022-09-02 16:52:03
- * @LastEditors: sj
- * @LastEditTime: 2022-09-02 16:52:03
+ * @LastEditors: linxi
+ * @LastEditTime: 2022-09-09 13:46:12
 -->
 <template>
   <div class="page-about">
