@@ -5,13 +5,13 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-06-12 09:03:42
  * @LastEditors: sj
- * @LastEditTime: 2022-09-15 17:40:11
+ * @LastEditTime: 2022-09-15 18:01:24
 -->
 <template>
   <div class="page-home">
     <div class="f5">
       <div class="layout" @click="linkScreen">
-        <Title :title="'产品体系'" @click="router.push('/screen')" />
+        <Title :title="'产品体系'" />
         <el-row :gutter="70" justify="space-evenly">
           <el-col :span="8" v-for="item in productList.list" :key="item.id">
             <div class="productItem">

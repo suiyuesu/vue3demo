@@ -4,8 +4,8 @@
  * @Author: 苏
  * @email: 1373842098@qq.com
  * @Date: 2022-09-02 16:51:12
- * @LastEditors: linxi
- * @LastEditTime: 2022-09-15 09:23:01
+ * @LastEditors: sj
+ * @LastEditTime: 2022-09-15 18:00:37
 -->
 <template>
   <div class="page-screen">
@@ -86,16 +86,17 @@
 
 <script setup>
 import { useStore } from 'vuex'
-import DataCard from '@/components/app-dataCard.vue'
-import { reactive, watch, onUpdated } from 'vue'
+
+import { reactive, watch, onUpdated, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { ref } from 'vue'
 import axios from 'axios'
 import moment from 'moment'
 import back from './assets/back.png'
-import HistogramCharts from '@/components/app-histogram.vue'
-import DataTable from '@/components/app-dataTable.vue'
-import RigthMain from '@/components/app-rightMain.vue'
+import DataCard from './components/dataCard.vue'
+import HistogramCharts from './components/histogram.vue'
+import DataTable from './components/dataTable.vue'
+import RigthMain from './components/rightMain.vue'
 
 const screenList = reactive({
   figureList: [
@@ -117,7 +118,7 @@ const isFullscreen = () => {
   return document.fullscreenElement || false
 }
 
-onUpdated(() => {
+onMounted(() => {
   isFullscreen()
 })
 

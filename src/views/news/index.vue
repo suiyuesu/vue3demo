@@ -4,8 +4,8 @@
  * @Author: 苏
  * @email: 1373842098@qq.com
  * @Date: 2022-09-02 16:51:12
- * @LastEditors: linxi
- * @LastEditTime: 2022-09-05 10:20:43
+ * @LastEditors: sj
+ * @LastEditTime: 2022-09-15 18:00:53
 -->
 <template>
   <div class="page-news">
@@ -73,7 +73,7 @@ import axios from 'axios'
 import moment from 'moment'
 import Title from '@/components/app-title.vue'
 import { DateTimeFormat } from '@/api/datatime.js'
-import DetailTitle from '@/components/app-detailTitle.vue'
+import DetailTitle from './components/detailTitle.vue'
 import '@/mock/news.js'
 import mockApi from '../../api/mockApi.js'
 
