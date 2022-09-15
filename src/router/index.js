@@ -36,7 +36,11 @@ const routes = [
       {
         path: '/semi', component: () => import('@/views/product/semi')
       },
+
     ]
+  },
+  {
+    path: '/screen', component: () => import('@/views/screen/screen')
   }
 ]
 

@@ -10,7 +10,7 @@
 <template>
   <div class="page-home">
     <div class="f5">
-      <div class="layout">
+      <div class="layout" @click="linkScreen">
         <Title :title="'产品体系'" />
         <el-row :gutter="70" justify="space-evenly">
           <el-col :span="8" v-for="item in productList.list" :key="item.id">

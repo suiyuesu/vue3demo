@@ -1,0 +1,38 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: linxi
+ * @email: 2194421430@qq.com
+ * @Date: 2022-09-15 09:21:27
+ * @LastEditors: linxi
+ * @LastEditTime: 2022-09-15 10:24:29
+-->
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: linxi
+ * @email: 2194421430@qq.com
+ * @Date: 2022-09-14 17:49:50
+ * @LastEditors: linxi
+ * @LastEditTime: 2022-09-15 09:19:50
+-->
+<template>
+  <div id="rightMain">
+    <RightOne style="width: 920px; height: 690px" />
+    <RightTwo style="width: 920px; height: 690px" />
+    <RightThree style="width: 920px; height: 550px" />
+  </div>
+</template>
+
+<script setup>
+import { onMounted, reactive, watch, ref } from 'vue'
+import * as echarts from 'echarts'
+import RightOne from '@/components/app-rightOne.vue'
+import RightTwo from '@/components/app-rightTwo.vue'
+import RightThree from '@/components/app-rightThree.vue'
+defineProps({
+  data: [],
+})
+</script>
+
+<style lang="less" scoped></style>

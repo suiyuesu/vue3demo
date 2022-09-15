@@ -1,0 +1,57 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: leon
+ * @email: leon0023@zoho.com.cn
+ * @Date: 2020-04-30 09:43:42
+ * @LastEditors: K
+ * @LastEditTime: 2022-05-27 17:28:19
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>杭州麟康医疗科技有限公司</title>
+    <include file="Public/header" />
+    <style>
+        body,#mapContainer{
+            margin:0;
+            height:100%;
+            width:100%;
+            font-size:12px;
+        }
+    </style>
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main.css?v=1.0?v=1.0" />
+    <script src="http://cache.amap.com/lbs/static/es5.min.js"></script>
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=9e882b9c7f1318593f9e65c925c590dc&plugin=AMap.ToolBar"></script>
+    <script>
+        function init() {
+            map = new AMap.Map("mapContainer", {
+                zoom: 16,
+                center:["120.16469","30.18704"]
+            });
+            marker = new AMap.Marker({
+                map:map,
+                position:["120.16469","30.18704"]
+            })
+            marker.setLabel({
+                offset: new AMap.Pixel(-100, -50),//修改label相对于maker的位置
+                content: "浙江省杭州市滨江区火炬大道581号"
+            });
+            marker.on('click',function(e){
+                marker.markOnAMAP({
+                    position:marker.getPosition()
+                })
+            })
+            map.addControl(new AMap.ToolBar());
+            if(AMap.UA.mobile){
+                document.getElementById('button_group').style.display='none';
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+<div id="mapContainer" ></div>
+<div class="button-group" id='button_group' style='top:15px;bottom:inherit'>
+</div>
+</body>
+</html>
