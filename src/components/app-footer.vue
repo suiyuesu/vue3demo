@@ -175,7 +175,7 @@ function link(href) {
 <style scoped lang="less">
 .app-footer {
   overflow: hidden;
-  background-color: #f5f5f5;
+  background-color: #fff;
   padding-top: 20px;
   .footerContainer {
     height: 250px;

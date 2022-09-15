@@ -13,8 +13,10 @@
     "axios": "^0.27.2",
     "babel-eslint": "^10.1.0",
     "core-js": "^3.8.3",
+    "echarts": "^5.3.3",
     "element-plus": "^2.2.13",
     "eslint-define-config": "^1.5.1",
+    "moment": "^2.29.4",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0",
@@ -34,8 +36,10 @@
     "eslint-plugin-vue": "^8.0.3",
     "less": "^4.0.0",
     "less-loader": "^8.0.0",
+    "mockjs": "^1.1.0",
     "prettier": "^2.4.1",
     "style-resources-loader": "^1.4.1",
+    "vite-plugin-mock": "^2.9.6",
     "vue-cli-plugin-style-resources-loader": "~0.1.5"
   }
 }
