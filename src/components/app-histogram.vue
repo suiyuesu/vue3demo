@@ -55,6 +55,9 @@ onMounted(() => {
         axisPointer: {
           type: 'shadow',
         },
+        textStyle: {
+          fontSize: 24,
+        },
       },
       legend: {
         show: true,
@@ -70,9 +73,6 @@ onMounted(() => {
         itemHeight: 16,
         itemWidth: 30,
       },
-      // legend: {
-      //   show: false,
-      // },
       grid: {
         left: '3%',
         right: '4%',
@@ -115,7 +115,7 @@ onMounted(() => {
           type: 'bar',
           stack: 'total',
           label: {
-            show: true,
+            show: false,
           },
           emphasis: {
             focus: 'series',

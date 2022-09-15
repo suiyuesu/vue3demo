@@ -13,12 +13,15 @@
       <p>年度目标</p>
       <p>医疗机构签约量：111</p>
     </div>
+    <ProgressBar style="height: 470px" />
+    <div class="rightOne-subTitle">当前完成情况</div>
   </div>
 </template>
 
 <script setup>
 import { onMounted, reactive, watch, ref } from 'vue'
 import * as echarts from 'echarts'
+import ProgressBar from '@/components/app-progressBar.vue'
 
 defineProps({
   data: [],
@@ -39,13 +42,20 @@ const rightOneList = reactive({
 
 <style lang="less" scoped>
 .rightOne {
+  background: red;
   color: #fff;
   font-size: 32px;
+  padding: 40px;
   &-title {
     text-align: center;
     p {
       line-height: 60px;
     }
+  }
+  &-subTitle {
+    text-align: center;
+    color: #fff;
+    font-size: 32px;
   }
 }
 </style>

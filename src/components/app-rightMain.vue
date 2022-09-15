@@ -18,9 +18,9 @@
 -->
 <template>
   <div id="rightMain">
-    <RightOne style="width: 920px; height: 690px" />
-    <RightTwo style="width: 920px; height: 690px" />
-    <RightThree style="width: 920px; height: 550px" />
+    <RightOne style="width: 920px; height: 710px" />
+    <RightTwo style="width: 920px; height: 710px" />
+    <RightThree style="width: 920px; height: 436px" />
   </div>
 </template>
 

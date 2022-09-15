@@ -16,7 +16,7 @@
         v-for="(item, i) in rightThreeList.list"
         :key="i"
       >
-        <p>{{ item.img }}</p>
+        <img :src="item.img" />
         <p>{{ item.title }}</p>
       </div>
     </el-row>
@@ -26,6 +26,9 @@
 <script setup>
 import { onMounted, reactive, watch, ref } from 'vue'
 import * as echarts from 'echarts'
+import ImgOne from '@/static/images/about/icon/1yuanjing.png'
+import ImgTwo from '@/static/images/about/icon/2shiming.png'
+import ImgThree from '@/static/images/about/icon/3jiazhi.png'
 
 defineProps({
   data: [],
@@ -36,17 +39,17 @@ const rightThreeList = reactive({
     {
       id: 1,
       title: 1111,
-      img: '1111',
+      img: ImgOne,
     },
     {
       id: 2,
       title: 2222,
-      img: '22222',
+      img: ImgTwo,
     },
     {
       id: 3,
       title: 333,
-      img: '33333',
+      img: ImgThree,
     },
   ],
 })
@@ -56,11 +59,15 @@ const rightThreeList = reactive({
 .rightThree {
   color: #fff;
   font-size: 32px;
+  padding: 40px;
   &-title {
     text-align: center;
     padding: 50px;
   }
   &-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   &-content {
     display: flex;
@@ -70,9 +77,13 @@ const rightThreeList = reactive({
     margin: 40px;
     width: 200px;
     height: 200px;
+    img {
+      width: 70px;
+      height: 70px;
+    }
     p {
-      height: 150px;
-      line-height: 150px;
+      height: 80px;
+      line-height: 80px;
     }
   }
 }

@@ -49,6 +49,9 @@ onMounted(() => {
       },
       tooltip: {
         trigger: 'item',
+        textStyle: {
+          fontSize: 24,
+        },
       },
       legend: {
         orient: 'horizontal',
@@ -93,6 +96,7 @@ onMounted(() => {
               shadowColor: 'rgba(0, 0, 0, 0.5)',
             },
           },
+
           label: {
             minMargin: 10,
             normal: {
@@ -110,6 +114,7 @@ onMounted(() => {
 
 <style lang="less" scoped>
 #rightTwo {
-  // background: rosybrown;
+  background: rosybrown;
+  padding: 40px;
 }
 </style>
