@@ -21,7 +21,7 @@
 <script setup>
 import { onMounted, reactive, watch, ref } from 'vue'
 import * as echarts from 'echarts'
-import ProgressBar from '@/components/app-progressBar.vue'
+import ProgressBar from './progressBar.vue'
 
 defineProps({
   data: [],

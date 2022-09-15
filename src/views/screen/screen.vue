@@ -86,16 +86,17 @@
 
 <script setup>
 import { useStore } from 'vuex'
-import DataCard from '@/components/app-dataCard.vue'
-import { reactive, watch, onUpdated } from 'vue'
+
+import { reactive, watch, onUpdated, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { ref } from 'vue'
 import axios from 'axios'
 import moment from 'moment'
 import back from './assets/back.png'
-import HistogramCharts from '@/components/app-histogram.vue'
-import DataTable from '@/components/app-dataTable.vue'
-import RigthMain from '@/components/app-rightMain.vue'
+import DataCard from './components/dataCard.vue'
+import HistogramCharts from './components/histogram.vue'
+import DataTable from './components/dataTable.vue'
+import RigthMain from './components/rightMain.vue'
 
 const screenList = reactive({
   figureList: [
@@ -117,7 +118,7 @@ const isFullscreen = () => {
   return document.fullscreenElement || false
 }
 
-onUpdated(() => {
+onMounted(() => {
   isFullscreen()
 })
 

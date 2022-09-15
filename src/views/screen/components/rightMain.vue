@@ -27,9 +27,9 @@
 <script setup>
 import { onMounted, reactive, watch, ref } from 'vue'
 import * as echarts from 'echarts'
-import RightOne from '@/components/app-rightOne.vue'
-import RightTwo from '@/components/app-rightTwo.vue'
-import RightThree from '@/components/app-rightThree.vue'
+import RightOne from './rightOne.vue'
+import RightTwo from './rightTwo.vue'
+import RightThree from './rightThree.vue'
 defineProps({
   data: [],
 })

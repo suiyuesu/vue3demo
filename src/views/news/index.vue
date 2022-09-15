@@ -73,7 +73,7 @@ import axios from 'axios'
 import moment from 'moment'
 import Title from '@/components/app-title.vue'
 import { DateTimeFormat } from '@/api/datatime.js'
-import DetailTitle from '@/components/app-detailTitle.vue'
+import DetailTitle from './components/detailTitle.vue'
 import '@/mock/news.js'
 import mockApi from '../../api/mockApi.js'
 
