@@ -5,7 +5,7 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-09-02 16:54:05
  * @LastEditors: sj
- * @LastEditTime: 2022-09-16 11:24:14
+ * @LastEditTime: 2022-09-16 13:51:15
 -->
 <template>
   <div class="page-outpatient">
@@ -44,37 +44,48 @@
           <SubTitle :title="'价格方案'" :pic="pricingSchemeOne" />
           <PricePlan :list="outpatientList?.pricePlanList" />
         </div>
-        <el-table :data="tableData" style="width: 100%">
+        <el-table
+          :data="tableData"
+          style="width: 100%"
+          :row-class-name="rowStyle"
+        >
           <el-table-column prop="name" label="功能项目" />
           <el-table-column prop="a" label="专业版" width="200" align="center">
             <template #default="scope">
               <span
+                v-if="scope.row.type == 2"
                 class="dot"
                 :style="{
                   backgroundColor: scope.row.a == 1 ? '#32abe0' : '#FFF',
                 }"
               ></span>
+              <span v-else></span>
             </template>
           </el-table-column>
           <el-table-column prop="b" label="旗舰版" width="200" align="center">
             <template #default="scope">
               <span
+                v-if="scope.row.type == 2"
                 class="dot"
                 :style="{
                   backgroundColor: scope.row.b == 1 ? '#32abe0' : '#FFF',
                 }"
               ></span>
+              <span v-else></span>
             </template>
           </el-table-column>
           <el-table-column prop="c" label="大客户版" width="200" align="center">
             <template #default="scope">
               <span
+                v-if="scope.row.type == 2"
                 class="dot"
                 :style="{
                   backgroundColor: scope.row.c == 1 ? '#32abe0' : '#FFF',
                 }"
-              ></span> </template
-          ></el-table-column>
+              ></span>
+              <span v-else></span>
+            </template>
+          </el-table-column>
         </el-table>
       </div>
     </div>
@@ -248,6 +259,11 @@ const tableData = [
     c: 0,
   },
 ]
+
+const rowStyle = ({ row, rowIndex }) => {
+  console.log(row.type)
+  return row.type == 1 ? 'title' : ''
+}
 </script>
 
 <style lang="less" scoped>
@@ -297,6 +313,17 @@ const tableData = [
 .pricePlanContainer {
   position: relative;
   padding-top: 180px;
+  /deep/ .el-table__row,
+  /deep/ thead .el-table__cell {
+    background-color: @backColor;
+  }
+  /deep/.title {
+    background-color: #d6eefe;
+    color: @themeColor;
+    &:hover {
+      background-color: #d6eefe;
+    }
+  }
 }
 .pricePlan {
   width: 100%;
