@@ -4,8 +4,8 @@
  * @Author: 苏
  * @email: 1373842098@qq.com
  * @Date: 2022-08-26 16:16:57
- * @LastEditors: sj
- * @LastEditTime: 2022-09-02 10:33:40
+ * @LastEditors: linxi
+ * @LastEditTime: 2022-09-16 11:26:46
 -->
 <template>
   <div class="card">
@@ -28,6 +28,7 @@ defineProps({
 
 <style lang="less" scoped>
 .card {
+  overflow: hidden;
   position: relative;
   background: #0e225f !important;
   color: saddlebrown;

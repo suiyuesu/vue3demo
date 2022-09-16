@@ -5,7 +5,7 @@
  * @email: 2194421430@qq.com
  * @Date: 2022-09-14 17:49:50
  * @LastEditors: linxi
- * @LastEditTime: 2022-09-15 10:21:38
+ * @LastEditTime: 2022-09-16 09:14:13
 -->
 <template>
   <div id="rightTwo"></div>
@@ -18,9 +18,6 @@ import * as echarts from 'echarts'
 defineProps({
   data: [],
 })
-const xData = ['杭州市', '衢州市', '丽水市', '宁波市']
-
-const List = ['#74bac2']
 
 const rightTwoList = reactive({
   list: [
@@ -80,7 +77,7 @@ onMounted(() => {
         },
         grid: {
           bottom: '10%',
-          containLabel: true,
+          // containLabel: true,
         },
       },
       series: [
@@ -101,7 +98,7 @@ onMounted(() => {
             minMargin: 10,
             normal: {
               position: 'inner',
-              show: false,
+              // show: false,
             },
           },
         },
@@ -114,7 +111,6 @@ onMounted(() => {
 
 <style lang="less" scoped>
 #rightTwo {
-  background: rosybrown;
   padding: 40px;
 }
 </style>

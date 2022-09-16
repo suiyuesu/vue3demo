@@ -5,7 +5,7 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-09-02 16:51:12
  * @LastEditors: linxi
- * @LastEditTime: 2022-09-15 09:23:01
+ * @LastEditTime: 2022-09-16 13:40:30
 -->
 <template>
   <div class="page-screen">
@@ -17,7 +17,7 @@
           <el-col :span="8">增值服务</el-col>
         </el-row>
       </div>
-      <div class="head-title">
+      <div class="head-title" @click="isFullscreen">
         <p>麟康医疗业务数据统计</p>
       </div>
       <div class="head-right">
@@ -44,7 +44,7 @@
         </DataCard>
         <DataCard :title="'最新签约'" :type="1" style="height: 945px">
           <template #left>
-            <DataTable style="width: 920px; height: 830px" />
+            <DataTable style="width: 920px" />
           </template>
         </DataCard>
       </div>
@@ -86,12 +86,12 @@
 
 <script setup>
 import { useStore } from 'vuex'
-
-import { reactive, watch, onUpdated, onMounted } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
 import { ref } from 'vue'
 import axios from 'axios'
 import moment from 'moment'
+import screenfull from 'screenfull'
+import { reactive, watch, onUpdated, onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import back from './assets/back.png'
 import DataCard from './components/dataCard.vue'
 import HistogramCharts from './components/histogram.vue'
@@ -115,7 +115,7 @@ const screenList = reactive({
 })
 
 const isFullscreen = () => {
-  return document.fullscreenElement || false
+  return screenfull?.toggle()
 }
 
 onMounted(() => {
