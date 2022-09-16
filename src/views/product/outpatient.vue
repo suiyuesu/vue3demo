@@ -5,7 +5,7 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-09-02 16:54:05
  * @LastEditors: sj
- * @LastEditTime: 2022-09-02 16:54:05
+ * @LastEditTime: 2022-09-16 11:24:14
 -->
 <template>
   <div class="page-outpatient">
@@ -38,9 +38,44 @@
         <AdhibitionList :list="outpatientList?.outpatientBottomList" />
       </div>
     </div>
-    <div class="ff">
-      <div class="layoutServer">
-        <SubTitle :title="'价格方案'" :pic="pricingSchemeOne" />
+    <div class="f5 f5Container">
+      <div class="layoutServer pricePlanContainer">
+        <div class="pricePlan">
+          <SubTitle :title="'价格方案'" :pic="pricingSchemeOne" />
+          <PricePlan :list="outpatientList?.pricePlanList" />
+        </div>
+        <el-table :data="tableData" style="width: 100%">
+          <el-table-column prop="name" label="功能项目" />
+          <el-table-column prop="a" label="专业版" width="200" align="center">
+            <template #default="scope">
+              <span
+                class="dot"
+                :style="{
+                  backgroundColor: scope.row.a == 1 ? '#32abe0' : '#FFF',
+                }"
+              ></span>
+            </template>
+          </el-table-column>
+          <el-table-column prop="b" label="旗舰版" width="200" align="center">
+            <template #default="scope">
+              <span
+                class="dot"
+                :style="{
+                  backgroundColor: scope.row.b == 1 ? '#32abe0' : '#FFF',
+                }"
+              ></span>
+            </template>
+          </el-table-column>
+          <el-table-column prop="c" label="大客户版" width="200" align="center">
+            <template #default="scope">
+              <span
+                class="dot"
+                :style="{
+                  backgroundColor: scope.row.c == 1 ? '#32abe0' : '#FFF',
+                }"
+              ></span> </template
+          ></el-table-column>
+        </el-table>
       </div>
     </div>
   </div>
@@ -53,6 +88,7 @@ import Title from '@/components/app-title.vue'
 import SubTitle from '@/components/app-subTitle.vue'
 import AddValuesLineList from '@/components/app-lineList.vue'
 import AdhibitionList from '@/components/app-adhibition.vue'
+import PricePlan from './components/pricePlan.vue'
 import outpatientTitleOne from '@/static/images/product/pic/outpatientPic01.png'
 import coreAdvantageOne from '@/static/images/product/icon/addValues/addValuesTitleIcon01.png'
 import adhibitionOne from '@/static/images/product/icon/addValues/adhibitionIcon01.png'
@@ -140,7 +176,78 @@ const outpatientList = reactive({
       img: outpatientBottom06,
     },
   ],
+  pricePlanList: [
+    {
+      id: 1,
+      name: '专 业 版',
+      target: '个体小型诊所',
+      price: '4988 / 年',
+    },
+    {
+      id: 2,
+      name: '旗 舰 版',
+      target: '大中型诊所/门诊部',
+      price: '8988 / 年',
+    },
+    {
+      id: 3,
+      name: '大 客 户 版',
+      target: '连锁集团/需求定制',
+      price: '按需评估',
+    },
+  ],
 })
+const tableData = [
+  {
+    name: '诊所流程',
+    type: 1,
+    a: 1,
+    b: 1,
+    c: 1,
+  },
+  {
+    name: '门诊接诊',
+    type: 2,
+    a: 1,
+    b: 1,
+    c: 0,
+  },
+  {
+    name: '电子病历',
+    type: 2,
+    a: 1,
+    b: 1,
+    c: 1,
+  },
+  {
+    name: '诊所经营',
+    type: 1,
+    a: 1,
+    b: 1,
+    c: 1,
+  },
+  {
+    name: '医疗服务',
+    type: 2,
+    a: 1,
+    b: 0,
+    c: 1,
+  },
+  {
+    name: '套餐管理',
+    type: 2,
+    a: 1,
+    b: 1,
+    c: 1,
+  },
+  {
+    name: '处置管理',
+    type: 2,
+    a: 0,
+    b: 1,
+    c: 0,
+  },
+]
 </script>
 
 <style lang="less" scoped>
@@ -182,5 +289,27 @@ const outpatientList = reactive({
       width: 800px;
     }
   }
+}
+.f5Container {
+  min-height: 500px;
+  margin-top: 150px;
+}
+.pricePlanContainer {
+  position: relative;
+  padding-top: 180px;
+}
+.pricePlan {
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: -180px;
+  transform: translateX(-50%);
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid @themeColor;
+  display: inline-block;
 }
 </style>
