@@ -5,7 +5,7 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-09-02 16:54:05
  * @LastEditors: sj
- * @LastEditTime: 2022-09-16 13:51:15
+ * @LastEditTime: 2022-09-16 14:08:51
 -->
 <template>
   <div class="page-outpatient">
@@ -320,9 +320,6 @@ const rowStyle = ({ row, rowIndex }) => {
   /deep/.title {
     background-color: #d6eefe;
     color: @themeColor;
-    &:hover {
-      background-color: #d6eefe;
-    }
   }
 }
 .pricePlan {
