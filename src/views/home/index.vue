@@ -5,7 +5,7 @@
  * @email: 1373842098@qq.com
  * @Date: 2022-06-12 09:03:42
  * @LastEditors: sj
- * @LastEditTime: 2022-09-05 14:03:47
+ * @LastEditTime: 2022-12-12 10:18:53
 -->
 <template>
   <div class="page-home">
@@ -36,7 +36,7 @@
         <el-row>
           <el-col :span="8">
             <div class="power">
-              <p class="power-title">推动基层医疗高质量发展</p>
+              <p class="power-title">推动基层医疗高质量发展88</p>
               <section
                 class="power-item"
                 v-for="item in productList.powerList"
